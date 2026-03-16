@@ -241,6 +241,9 @@
     return m;
   });
 
+  // Plain layer group used in proximity/heatmap mode (no clustering)
+  const stationHeatGroup = L.layerGroup();
+
   stationMarkers.forEach(m => stationCluster.addLayer(m));
   subMarkers.forEach(m => subCluster.addLayer(m));
   map.addLayer(stationCluster);
@@ -262,18 +265,31 @@
   }
 
   function applyFilters() {
+    // Swap layer group based on mode
+    if (proxMode) {
+      if (map.hasLayer(stationCluster)) { map.removeLayer(stationCluster); }
+      if (!map.hasLayer(stationHeatGroup)) { map.addLayer(stationHeatGroup); }
+    } else {
+      if (map.hasLayer(stationHeatGroup)) { map.removeLayer(stationHeatGroup); }
+      if (!map.hasLayer(stationCluster)) { map.addLayer(stationCluster); }
+    }
+
     stationCluster.clearLayers();
+    stationHeatGroup.clearLayers();
+
     stationMarkers.forEach(m => {
-      const regionOk  = activeRegions.has(m._region);
-      const searchOk  = !searchTerm || m._search.includes(searchTerm);
-      const distOk    = m._dist <= maxDist;
+      const regionOk = activeRegions.has(m._region);
+      const searchOk = !searchTerm || m._search.includes(searchTerm);
+      const distOk   = m._dist <= maxDist;
       m._visible = regionOk && searchOk && distOk;
 
-      // Update icon colour
       const color = proxMode ? distColor(m._dist) : m._regionColor;
       m.setIcon(makeStationIcon(color));
 
-      if (m._visible) stationCluster.addLayer(m);
+      if (m._visible) {
+        if (proxMode) stationHeatGroup.addLayer(m);
+        else stationCluster.addLayer(m);
+      }
     });
 
     subCluster.clearLayers();
