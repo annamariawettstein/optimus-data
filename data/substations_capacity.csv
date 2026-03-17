@@ -1,0 +1,442 @@
+State,Operator,Substation,Booked Capacity,Available Capacity
+Burgenland,Netz Burgenland GmbH,UW Deutschkreutz,5,0
+Burgenland,Netz Burgenland GmbH,UW Eisenstadt,14,0
+Burgenland,Netz Burgenland GmbH,UW Eltendorf,2,1
+Burgenland,Netz Burgenland GmbH,UW Frauenkirchen,4,0
+Burgenland,Netz Burgenland GmbH,UW Güssing,15,1
+Burgenland,Netz Burgenland GmbH,UW Jennersdorf,8,3
+Burgenland,Netz Burgenland GmbH,UW Market St. Martin,7,1
+Burgenland,Netz Burgenland GmbH,UW Mattersburg,8,0
+Burgenland,Netz Burgenland GmbH,UW Neudörfl,4,0
+Burgenland,Netz Burgenland GmbH,UW Neusiedl,17,0
+Burgenland,Netz Burgenland GmbH,UW Oberpullendorf,6,0
+Burgenland,Netz Burgenland GmbH,UW Pama,7,0
+Burgenland,Netz Burgenland GmbH,UW Pinkafeld,5,0
+Burgenland,Netz Burgenland GmbH,UW Rotenturm,8,0
+Burgenland,Netz Burgenland GmbH,UW Stegersbach,8,1
+Burgenland,Netz Burgenland GmbH,UW Steinbrunn,3,0
+Burgenland,Netz Burgenland GmbH,UW Wimpassing,2,0
+Burgenland,Netz Burgenland GmbH,UW Zurndorf,18,0
+Carinthia,KNG - Kärnten Netz GmbH,UW Auen,0.92,34.28
+Carinthia,KNG - Kärnten Netz GmbH,UW Out-of-Court,1.08,0
+Carinthia,KNG - Kärnten Netz GmbH,UW Bleiburg,9.04,0
+Carinthia,KNG - Kärnten Netz GmbH,UW Brückl,6.89,37.11
+Carinthia,KNG - Kärnten Netz GmbH,UW Ettendorf,0,0
+Carinthia,KNG - Kärnten Netz GmbH,UW Feldkirchen,2.6,11.03
+Carinthia,KNG - Kärnten Netz GmbH,UW Ferlach,6.52,0
+Carinthia,KNG - Kärnten Netz GmbH,UW Forstsee,1.19,20.3
+Carinthia,KNG - Kärnten Netz GmbH,UW Freibach,1.12,0
+Carinthia,KNG - Kärnten Netz GmbH,UW Fürnitz,0.85,6.35
+Carinthia,KNG - Kärnten Netz GmbH,UW Gailitz,0.51,0
+Carinthia,KNG - Kärnten Netz GmbH,UW Gmünd,7.99,0
+Carinthia,KNG - Kärnten Netz GmbH,UW Gummern,3.43,0
+Carinthia,KNG - Kärnten Netz GmbH,UW Gurk,8.4,0
+Carinthia,KNG - Kärnten Netz GmbH,UW Hermagor,0.43,8.86
+Carinthia,KNG - Kärnten Netz GmbH,UW Innerfragant,0,0
+Carinthia,KNG - Kärnten Netz GmbH,UW Camera,28.62,0
+Carinthia,KNG - Kärnten Netz GmbH,UW Klagenfurt,9.67,0
+Carinthia,KNG - Kärnten Netz GmbH,UW Kleinkirchheim,0.35,0
+Carinthia,KNG - Kärnten Netz GmbH,UW Koralpe,45.46,0
+Carinthia,KNG - Kärnten Netz GmbH,UW Landskron,3.66,31.18
+Carinthia,KNG - Kärnten Netz GmbH,UW Lassendorf,9.73,16.08
+Carinthia,KNG - Kärnten Netz GmbH,UW Lieserhofen,0.62,0
+Carinthia,KNG - Kärnten Netz GmbH,UW Malta Lower School,22.41,0
+Carinthia,KNG - Kärnten Netz GmbH,UW Oberdrauburg,0.41,0
+Carinthia,KNG - Kärnten Netz GmbH,UW Radenthein,1.42,0
+Carinthia,KNG - Kärnten Netz GmbH,UW Rennweg,0.12,0
+Carinthia,KNG - Kärnten Netz GmbH,UW Rosegg,0.81,11.13
+Carinthia,KNG - Kärnten Netz GmbH,UW Seebach,1.76,61.23
+Carinthia,KNG - Kärnten Netz GmbH,UW Spittal,4.58,0
+Carinthia,KNG - Kärnten Netz GmbH,UW St. Andrä,47.56,0
+Carinthia,KNG - Kärnten Netz GmbH,UW St. Leonhard,40.17,0
+Carinthia,KNG - Kärnten Netz GmbH,UW St. Margareten,0,0
+Carinthia,KNG - Kärnten Netz GmbH,UW St. Martin,0,0
+Carinthia,KNG - Kärnten Netz GmbH,UW St. Veit,1.79,22.63
+Carinthia,KNG - Kärnten Netz GmbH,UW Steinfeld,0.53,0
+Carinthia,KNG - Kärnten Netz GmbH,UW Treibach,24.08,39.97
+Carinthia,KNG - Kärnten Netz GmbH,UW Tröpolach,0.12,12.15
+Carinthia,KNG - Kärnten Netz GmbH,UW Villach-Süd,0,0
+Carinthia,KNG - Kärnten Netz GmbH,UW Völkermarkt,5.72,34.75
+Carinthia,KNG - Kärnten Netz GmbH,UW Vorderberg,0,0
+Carinthia,KNG - Kärnten Netz GmbH,UW Warmbad,1.78,33.52
+Carinthia,KNG - Kärnten Netz GmbH,UW Wietersdorf,1.8,20.2
+Carinthia,KNG - Kärnten Netz GmbH,UW Windischbach,3.43,11.89
+Carinthia,KNG - Kärnten Netz GmbH,UW Wolfsberg,35.95,0
+Carinthia,KNG - Kärnten Netz GmbH,UW Wölla,0,0
+Carinthia,KNG - Kärnten Netz GmbH,UW Würmlach,22.79,0
+Carinthia,KNG - Kärnten Netz GmbH,UW Zirknitz,88.31,0
+Carinthia,Energie Klagenfurt GmbH,UWK South,29.8,0.83
+Carinthia,Energie Klagenfurt GmbH,UWN Center,0.8,46.69
+Carinthia,Energie Klagenfurt GmbH,UWN North,0.86,39.51
+Carinthia,Energie Klagenfurt GmbH,UWO East,14.9,14.52
+Carinthia,Energie Klagenfurt GmbH,UWW West,2.17,44.87
+Lower Austria,Netz Niederösterreich GmbH,UW Am Schuss,6,5
+Lower Austria,Netz Niederösterreich GmbH,UW Amstetten,11,18
+Lower Austria,Netz Niederösterreich GmbH,UW Amstetten East,18,15
+Lower Austria,Netz Niederösterreich GmbH,UW Bisamberg,0,0
+Lower Austria,Netz Niederösterreich GmbH,UW Bockfließ,40,0
+Lower Austria,Netz Niederösterreich GmbH,UW Bruck,9,0
+Lower Austria,Netz Niederösterreich GmbH,UW Deutsch/Altenburg,93,0
+Lower Austria,Netz Niederösterreich GmbH,UW Dürnrohr,23,0
+Lower Austria,Netz Niederösterreich GmbH,UW Edlitz,26,0
+Lower Austria,Netz Niederösterreich GmbH,UW Eggenburg,15,0
+Lower Austria,Netz Niederösterreich GmbH,UW Eibesbrunn,29,0
+Lower Austria,Netz Niederösterreich GmbH,UW Eibesbrunn (2),32,0
+Lower Austria,Netz Niederösterreich GmbH,UW Enzersdorf/Fischa,8,0
+Lower Austria,Netz Niederösterreich GmbH,UW Erlauf,31,0
+Lower Austria,Netz Niederösterreich GmbH,UW Erlaufboden,5,10
+Lower Austria,Netz Niederösterreich GmbH,UW Ernsthofen,7,13
+Lower Austria,Netz Niederösterreich GmbH,UW Gänserndorf,16,0
+Lower Austria,Netz Niederösterreich GmbH,UW Gaweinstal,34,0
+Lower Austria,Netz Niederösterreich GmbH,UW Gerstl,12,10
+Lower Austria,Netz Niederösterreich GmbH,UW Gmünd,47,16
+Lower Austria,Netz Niederösterreich GmbH,UW Gresten,8,22
+Lower Austria,Netz Niederösterreich GmbH,UW Groß Gerungs,5,0
+Lower Austria,Netz Niederösterreich GmbH,UW Grubberg,2,12
+Lower Austria,Netz Niederösterreich GmbH,UW Haag South,28,27
+Lower Austria,Netz Niederösterreich GmbH,UW Hainfeld,5,4
+Lower Austria,Netz Niederösterreich GmbH,UW Hart,12,27
+Lower Austria,Netz Niederösterreich GmbH,UW Hauskirchen,14,0
+Lower Austria,Netz Niederösterreich GmbH,UW Hausmening,10,26
+Lower Austria,Netz Niederösterreich GmbH,UW Heidenreichstein,8,0
+Lower Austria,Netz Niederösterreich GmbH,UW Herzogenburg,23,0
+Lower Austria,Netz Niederösterreich GmbH,UW Höflein,0,0
+Lower Austria,Netz Niederösterreich GmbH,UW High Wall,18,0
+Lower Austria,Netz Niederösterreich GmbH,UW Hollabrunn,8,8
+Lower Austria,Netz Niederösterreich GmbH,UW Horn,16,14
+Lower Austria,Netz Niederösterreich GmbH,UW Japan,5,0
+Lower Austria,Netz Niederösterreich GmbH,UW Kettlasbrunn South,48,0
+Lower Austria,Netz Niederösterreich GmbH,UW Kilb,8,0
+Lower Austria,Netz Niederösterreich GmbH,UW Kirchberg/Wagram,6,0
+Lower Austria,Netz Niederösterreich GmbH,UW Korneuburg West,18,17
+Lower Austria,Netz Niederösterreich GmbH,UW Krems,18,34
+Lower Austria,Netz Niederösterreich GmbH,UW Krumau,4,7
+Lower Austria,Netz Niederösterreich GmbH,UW Laa/Thaya,45,0
+Lower Austria,Netz Niederösterreich GmbH,UW Langenlois,8,0
+Lower Austria,Netz Niederösterreich GmbH,UW Lassee,18,0
+Lower Austria,Netz Niederösterreich GmbH,UW Loosdorf,32,0
+Lower Austria,Netz Niederösterreich GmbH,UW Mistelbach,14,0
+Lower Austria,Netz Niederösterreich GmbH,UW Neuhaus,4,7
+Lower Austria,Netz Niederösterreich GmbH,UW Neulengbach,9,3
+Lower Austria,Netz Niederösterreich GmbH,UW Neusiedl/Zaya,31,0
+Lower Austria,Netz Niederösterreich GmbH,UW Neusiedl/Zaya (2),226,0
+Lower Austria,Netz Niederösterreich GmbH,UW Ottenstein,15,0
+Lower Austria,Netz Niederösterreich GmbH,UW Peigarten,14,0
+Lower Austria,Netz Niederösterreich GmbH,UW Petronell,56,0
+Lower Austria,Netz Niederösterreich GmbH,UW Pottenbrunn,29,0
+Lower Austria,Netz Niederösterreich GmbH,UW Pottenstein,8,16
+Lower Austria,Netz Niederösterreich GmbH,UW Poysdorf,15,0
+Lower Austria,Netz Niederösterreich GmbH,UW Pressbaum,6,15
+Lower Austria,Netz Niederösterreich GmbH,UW Prinzendorf-Steinberg,14,0
+Lower Austria,Netz Niederösterreich GmbH,UW Prottes,6,0
+Lower Austria,Netz Niederösterreich GmbH,UW Pyburg,28,0
+Lower Austria,Netz Niederösterreich GmbH,UW Sallingberg,20,0
+Lower Austria,Netz Niederösterreich GmbH,UW Sarasdorf,0,0
+Lower Austria,Netz Niederösterreich GmbH,UW Schoeller,7,29
+Lower Austria,Netz Niederösterreich GmbH,UW Spannberg,5,0
+Lower Austria,Netz Niederösterreich GmbH,UW Spannberg (2),189,0
+Lower Austria,Netz Niederösterreich GmbH,UW St. Pölten West,26,34
+Lower Austria,Netz Niederösterreich GmbH,UW Stockerau,22,0
+Lower Austria,Netz Niederösterreich GmbH,UW Stollhofen,13,0
+Lower Austria,Netz Niederösterreich GmbH,UW Stratzdorf,22,0
+Lower Austria,Netz Niederösterreich GmbH,UW Ternitz,17,7
+Lower Austria,Netz Niederösterreich GmbH,UW Traisen,7,17
+Lower Austria,Netz Niederösterreich GmbH,UW Tulln West,40,9
+Lower Austria,Netz Niederösterreich GmbH,UW Türnitz,7,2
+Lower Austria,Netz Niederösterreich GmbH,UW Untersiebenbrunn,5,0
+Lower Austria,Netz Niederösterreich GmbH,UW Waidhofen/Thaya,18,3
+Lower Austria,Netz Niederösterreich GmbH,UW Waldegg,18,42
+Lower Austria,Netz Niederösterreich GmbH,UW Wasenbruck,17,0
+Lower Austria,Netz Niederösterreich GmbH,UW Wieselburg,24,0
+Lower Austria,Netz Niederösterreich GmbH,UW Wilhelmsburg,16,21
+Lower Austria,Netz Niederösterreich GmbH,UW Wöllersdorf,65,15
+Lower Austria,Netz Niederösterreich GmbH,UW Wr. Neustadt,16,34
+Lower Austria,Netz Niederösterreich GmbH,UW Wr. Neustadt Airfield,26,0
+Lower Austria,Netz Niederösterreich GmbH,UW Zagging,0,0
+Lower Austria,Netz Niederösterreich GmbH,UW Zwettl,7,5
+Lower Austria,Wiener Netze GmbH,UW BADEN,0.12,0
+Lower Austria,Wiener Netze GmbH,UW EBENFURTH,0.08,0
+Lower Austria,Wiener Netze GmbH,UW EBREICHSDORF,0.04,0
+Lower Austria,Wiener Netze GmbH,UW ENZESFELD,0.04,0
+Lower Austria,Wiener Netze GmbH,UW GERASDORF,0.07,0
+Lower Austria,Wiener Netze GmbH,UW KLOSTERNEUBURG,0.31,24.05
+Lower Austria,Wiener Netze GmbH,UW MOOSBRUNN,0.07,0
+Lower Austria,Wiener Netze GmbH,UW TRAISKIRCHEN,0.23,0
+Lower Austria,Wiener Netze GmbH,UW WrNEUDORF,0.25,0
+Upper Austria,Linz Netz GmbH,UW Abwinden-Asten,7,17.92
+Upper Austria,Linz Netz GmbH,UW Baumgartenberg,23.78,0
+Upper Austria,Linz Netz GmbH,UW Linz City,1.64,33.56
+Upper Austria,Linz Netz GmbH,UW Enns Industry,1.91,26.22
+Upper Austria,Linz Netz GmbH,UW Friensdorf,9.07,0
+Upper Austria,Linz Netz GmbH,UW Linz FHKW Mitte,2.64,32.56
+Upper Austria,Linz Netz GmbH,UW Freistadt,5.73,11.27
+Upper Austria,Linz Netz GmbH,UW Franzosenhausweg,4.94,16.29
+Upper Austria,Linz Netz GmbH,UW Gaumberg,1.36,26.14
+Upper Austria,Linz Netz GmbH,UW FHKW Linz South,0.55,8.75
+Upper Austria,Linz Netz GmbH,UW Linz Katzbach,1.32,20.68
+Upper Austria,Linz Netz GmbH,UW Kleinmünchen,1.13,34.05
+Upper Austria,Linz Netz GmbH,UW Leonding,4.36,13.61
+Upper Austria,Linz Netz GmbH,UW Linz Industrial Building 103,0.15,34.5
+Upper Austria,Linz Netz GmbH,UW Linz East Building 100 (10kV),0.3,21.68
+Upper Austria,Linz Netz GmbH,UW Linz East Building 102 (6kV),0.09,21.91
+Upper Austria,Linz Netz GmbH,UW Mauthausen,21.93,0
+Upper Austria,Linz Netz GmbH,UW Linz Mitte,1.8,39.45
+Upper Austria,Linz Netz GmbH,Linz North Substation (10kV),2.27,32.93
+Upper Austria,Linz Netz GmbH,Linz North Substation (25kV),3.93,12.99
+Upper Austria,Linz Netz GmbH,UW Linz Northwest,0.85,23.9
+Upper Austria,Linz Netz GmbH,Pichling,1.1,31.32
+Upper Austria,Linz Netz GmbH,UW Rainbach,11.9,1.39
+Upper Austria,Linz Netz GmbH,UW Wattstrasse,30.48,4.72
+Upper Austria,Linz Netz GmbH,UW Wienerstrasse,1.96,0
+Upper Austria,Linz Netz GmbH,UW Center,1.59,33.61
+Upper Austria,Netz Oberösterreich GmbH,UW AIGERDING,28.21,0
+Upper Austria,Netz Oberösterreich GmbH,UW ANTIESENHOFEN,30.28,2.42
+Upper Austria,Netz Oberösterreich GmbH,UW BAD HALL,43.69,0
+Upper Austria,Netz Oberösterreich GmbH,UW EFERDING,23.1,0
+Upper Austria,Netz Oberösterreich GmbH,UW FELDKIRCHEN,13.72,0
+Upper Austria,Netz Oberösterreich GmbH,UW FRANKENMARKT,25.3,2.81
+Upper Austria,Netz Oberösterreich GmbH,UW GMUNDEN,5.47,23.57
+Upper Austria,Netz Oberösterreich GmbH,UW GRIESKIRCHEN,28.04,0
+Upper Austria,Netz Oberösterreich GmbH,UW GROSZRAMING,7.57,5.77
+Upper Austria,Netz Oberösterreich GmbH,UW GUNDERTSHAUSEN,8.61,9.39
+Upper Austria,Netz Oberösterreich GmbH,UW HOERSCHING,43.53,5.68
+Upper Austria,Netz Oberösterreich GmbH,UW JAHRSDORF,34.67,0
+Upper Austria,Netz Oberösterreich GmbH,UW KIRCHDORF,33.3,0.25
+Upper Austria,Netz Oberösterreich GmbH,UW KLAUS,6.58,0
+Upper Austria,Netz Oberösterreich GmbH,UW KREMSMUENSTER,28.87,2.78
+Upper Austria,Netz Oberösterreich GmbH,UW LAMBACH,25.02,0
+Upper Austria,Netz Oberösterreich GmbH,UW LENGAU,5.65,0
+Upper Austria,Netz Oberösterreich GmbH,UW MARCHTRENK,8.38,0
+Upper Austria,Netz Oberösterreich GmbH,UW MATTIGHOFEN,23.68,0
+Upper Austria,Netz Oberösterreich GmbH,UW OHLSDORF,18.41,0
+Upper Austria,Netz Oberösterreich GmbH,UW PARTENSTEIN,26.18,0
+Upper Austria,Netz Oberösterreich GmbH,UW PFANDL,1.15,34.97
+Upper Austria,Netz Oberösterreich GmbH,UW PUCHBERG,14.61,6.86
+Upper Austria,Netz Oberösterreich GmbH,UW PYHRN,3.04,22.86
+Upper Austria,Netz Oberösterreich GmbH,UW RAAB,17.3,6.15
+Upper Austria,Netz Oberösterreich GmbH,UW RANNA,29.77,0
+Upper Austria,Netz Oberösterreich GmbH,UW RANSHOFEN,18.12,0.19
+Upper Austria,Netz Oberösterreich GmbH,UW REGAU,6.74,11.94
+Upper Austria,Netz Oberösterreich GmbH,UW RIED,11,18.37
+Upper Austria,Netz Oberösterreich GmbH,UW RIEDERSBACH,3.33,20.75
+Upper Austria,Netz Oberösterreich GmbH,UW ROHRBACH,23.43,0
+Upper Austria,Netz Oberösterreich GmbH,UW ROSSBACH,23.21,0
+Upper Austria,Netz Oberösterreich GmbH,UW ROTTENBACH,21.04,17.31
+Upper Austria,Netz Oberösterreich GmbH,UW SATTLEDT,18.15,0
+Upper Austria,Netz Oberösterreich GmbH,UW STEEG,3.46,22.39
+Upper Austria,Netz Oberösterreich GmbH,UW STEINFELDEN,4.15,4.59
+Upper Austria,Netz Oberösterreich GmbH,UW STEINKOGL,6.29,31.8
+Upper Austria,Netz Oberösterreich GmbH,UW STEYR,10.92,61.6
+Upper Austria,Netz Oberösterreich GmbH,UW STEYR NORTH,18.51,0
+Upper Austria,Netz Oberösterreich GmbH,UW TILLYSBURG,29.82,0
+Upper Austria,Netz Oberösterreich GmbH,UW TIMELKAM,38.29,0
+Upper Austria,Netz Oberösterreich GmbH,UW TRAUN PUCKING,38.05,2.5
+Upper Austria,Netz Oberösterreich GmbH,UW TRAUNFALL,25.33,0
+Upper Austria,Netz Oberösterreich GmbH,UW UNTERACH,2.81,30.23
+Upper Austria,Netz Oberösterreich GmbH,UW VOECKLABRUCK,14.55,15.96
+Upper Austria,Netz Oberösterreich GmbH,UW Vorchdorf,5.72,17.61
+Upper Austria,Netz Oberösterreich GmbH,UW WAYSCHEID,11.11,23.63
+Upper Austria,Energie Ried GmbH,UW LANGSTADL,22.373,0.63
+Upper Austria,eww ag,UW Wels Mitte,1.4,35.81
+Upper Austria,eww ag,UW Wels FHK,2.34,31.84
+Upper Austria,eww ag,UW Wels North,9.07,30.05
+Upper Austria,eww ag,UW Wels East,1.8,32.85
+Salzburg,Salzburg Netz GmbH,KW Böckstein,2,13
+Salzburg,Salzburg Netz GmbH,KW Dießbach,4,5
+Salzburg,Salzburg Netz GmbH,KW Wald,15,0
+Salzburg,Salzburg Netz GmbH,UW Angertal,1,0
+Salzburg,Salzburg Netz GmbH,UW Annaberg,30,6
+Salzburg,Salzburg Netz GmbH,UW Eichet,30,21
+Salzburg,Salzburg Netz GmbH,UW Flachgau,56,0
+Salzburg,Salzburg Netz GmbH,UW Flachauwinkl,11,10
+Salzburg,Salzburg Netz GmbH,UW Goeming,54,0
+Salzburg,Salzburg Netz GmbH,UW Golling,39,0
+Salzburg,Salzburg Netz GmbH,UW Hagenau,13,68
+Salzburg,Salzburg Netz GmbH,UW Hinterglemm,2,33
+Salzburg,Salzburg Netz GmbH,UW Hof,15,0
+Salzburg,Salzburg Netz GmbH,UW Lend,11,0
+Salzburg,Salzburg Netz GmbH,UW Lungau,16,0
+Salzburg,Salzburg Netz GmbH,UW Maishofen,15,22
+Salzburg,Salzburg Netz GmbH,UW Center,1,42
+Salzburg,Salzburg Netz GmbH,UW Mittersill,27,0
+Salzburg,Salzburg Netz GmbH,UW Oberalm,23,0
+Salzburg,Salzburg Netz GmbH,UW Pinzgau,5,15
+Salzburg,Salzburg Netz GmbH,UW Pongau,7,9
+Salzburg,Salzburg Netz GmbH,UW Reitdorf,27,17
+Salzburg,Salzburg Netz GmbH,UW Saalfelden,39,0
+Salzburg,Salzburg Netz GmbH,UW Strobl,2,13
+Salzburg,Salzburg Netz GmbH,UW Taxach,15,27
+Salzburg,Netz Oberösterreich GmbH,UW ARTHURWERK,4.91,0
+Styria,ENVESTA Energy & Services GmbH,UW Hall,81.84,0
+Styria,Feistritzwerke-STEWEAG GmbH,UW Rohrbach,16.57,0
+Styria,Netz Oberösterreich GmbH,UW BAD AUSSEE,1.64,30.02
+Styria,Stadtwerke Judenburg AG,UW Judenburg West,11,0
+Styria,Kapfenberg Municipal Utilities GmbH,UW Kapfenberg SWK,3.725,0
+Styria,Energienetze Steiermark GmbH,UW Arnstein,23.69,0
+Styria,Energienetze Steiermark GmbH,UW Bärnbach,37.26,0
+Styria,Energienetze Steiermark GmbH,UW Baumkirchen,33.86,0
+Styria,Energienetze Steiermark GmbH,UW Bergla,38.6,0
+Styria,Energienetze Steiermark GmbH,UW Birkfeld,19.29,0
+Styria,Energienetze Steiermark GmbH,UW Bodendorf,10.47,0
+Styria,Energienetze Steiermark GmbH,UW Brodingberg,17.51,0
+Styria,Energienetze Steiermark GmbH,UW Bruck,14.1,4.6
+Styria,Energienetze Steiermark GmbH,UW gun goods,3.48,0
+Styria,Energienetze Steiermark GmbH,UW Deutschfeistritz,41.68,0
+Styria,Energienetze Steiermark GmbH,UW Deutschlandsberg,64.11,0
+Styria,Energienetze Steiermark GmbH,UW Essling,17.74,0
+Styria,Energienetze Steiermark GmbH,UW Feldbach,56.87,0
+Styria,Energienetze Steiermark GmbH,UW Frohnleiten,14.75,0
+Styria,Energienetze Steiermark GmbH,UW Fürstenfeld,11.8,0
+Styria,Energienetze Steiermark GmbH,UW Gleisdorf,8.51,0
+Styria,Energienetze Steiermark GmbH,UW Gosdorf,59.93,0
+Styria,Energienetze Steiermark GmbH,UW Grambach,27.43,0
+Styria,Energienetze Steiermark GmbH,UW Graz North,19.79,0
+Styria,Energienetze Steiermark GmbH,UW Graz East,6.9,12.21
+Styria,Energienetze Steiermark GmbH,UW Graz South,12.39,0
+Styria,Energienetze Steiermark GmbH,UW Hadersdorf,0.5,0
+Styria,Energienetze Steiermark GmbH,UW Halbenrain,48.04,0
+Styria,Energienetze Steiermark GmbH,UW Hartberg,20,0
+Styria,Energienetze Steiermark GmbH,UW House,12.24,0
+Styria,Energienetze Steiermark GmbH,UW Hessenberg,38.85,0
+Styria,Energienetze Steiermark GmbH,UW Hieflau,2,3.09
+Styria,Energienetze Steiermark GmbH,UW Hohenbrugg,20.56,0
+Styria,Energienetze Steiermark GmbH,UW Irdning,13.09,0
+Styria,Energienetze Steiermark GmbH,UW Judenburg West,15.55,0
+Styria,Energienetze Steiermark GmbH,UW Kapfenberg,6.61,0
+Styria,Energienetze Steiermark GmbH,UW Knittelfeld East,34.87,0
+Styria,Energienetze Steiermark GmbH,UW Leibnitz,61.52,0
+Styria,Energienetze Steiermark GmbH,UW Leoben West,46.96,0
+Styria,Energienetze Steiermark GmbH,UW Lieboch,64.11,0
+Styria,Energienetze Steiermark GmbH,UW Liezen,19.19,0
+Styria,Energienetze Steiermark GmbH,UW Merkendorf,24.35,0
+Styria,Energienetze Steiermark GmbH,UW Mitterdorf,22.16,0
+Styria,Energienetze Steiermark GmbH,UW Modriach,7.11,0
+Styria,Energienetze Steiermark GmbH,UW Mürzzuschlag,47.96,0
+Styria,Energienetze Steiermark GmbH,UW Neudorf/Werndorf,20.94,0
+Styria,Energienetze Steiermark GmbH,UW Pernegg Water,15.46,0
+Styria,Energienetze Steiermark GmbH,UW Pirka,11.88,17.36
+Styria,Energienetze Steiermark GmbH,UW Schachen,10,0
+Styria,Energienetze Steiermark GmbH,UW Schwarzenbach,12.71,0
+Styria,Energienetze Steiermark GmbH,UW Sölk,2,0
+Styria,Energienetze Steiermark GmbH,UW Teufenbach,18.76,0
+Styria,Energienetze Steiermark GmbH,UW Trofeng,10.33,0
+Styria,Energienetze Steiermark GmbH,UW downtube,19.5,0
+Styria,Energienetze Steiermark GmbH,UW Webling,11.72,0
+Styria,Energienetze Steiermark GmbH,UW Weiz,60.38,0
+Styria,Energienetze Steiermark GmbH,UW Zettling,42.92,0
+Styria,Stromnetz Graz GmbH,UW West,0.92,54.08
+Styria,Stromnetz Graz GmbH,UW Webling,0.53,24.75
+Styria,Stromnetz Graz GmbH,UW South,1.29,42.71
+Styria,Stromnetz Graz GmbH,UW East,0.37,34.83
+Styria,Stromnetz Graz GmbH,UW North,0.62,34.58
+Styria,Stromnetz Graz GmbH,Kepler Bridge Waterworks,0.51,34.69
+Tyrol,IKB - Innsbruckerkommunalbetriebe AG,UW East,10,40
+Tyrol,IKB - Innsbruckerkommunalbetriebe AG,UW Center,0,35
+Tyrol,IKB - Innsbruckerkommunalbetriebe AG,UW North,0,30
+Tyrol,IKB - Innsbruckerkommunalbetriebe AG,UW Pastor,0,45
+Tyrol,IKB - Innsbruckerkommunalbetriebe AG,UW Ahrental,52,0
+Tyrol,Reutte Electricity Works AG,UW Biberwier,0,29
+Tyrol,Reutte Electricity Works AG,UW Reutte 1,0,6
+Tyrol,Reutte Electricity Works AG,UW Reutte 2,8,23
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Amlach,0,0
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Bösdornau,1,54
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Brennerwerk,0,0
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Brixen,1,43
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Ebbs,2,21
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Ellmau,1,25
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Fiss,2,42
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Add,4,24
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Fulpmes,1,20
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Funsingau,0,6
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Habichen,1,15
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Hall,0,45
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Hochfilzen,1,27
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Hopfgarten,1,35
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Imst,3,20
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Jenbach,2,28
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Kalserbach,7,0
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Kirchbichl/KW-Kirchbichl,14,25
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Kitzbühel,1,43
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Kramsach,2,26
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Kufstein,1,43
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Kundl,1,8
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Landeck,2,20
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Matrei iO,1,0
+Tyrol,TINETZ - Tiroler Netze GmbH,UW East,1,8
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Ötztal,4,21
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Prutz,2,33
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Reith bS,1,12
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Rietz,3,31
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Schwaz,0,18
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Sillian,2,10
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Sölden,6,25
+Tyrol,TINETZ - Tiroler Netze GmbH,UW St. Jakob aA,0,17
+Tyrol,TINETZ - Tiroler Netze GmbH,UW St. Johann,3,52
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Steinach,1,21
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Stribach,2,14
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Tobadill,8,18
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Völs,3,21
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Wattens,1,20
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Wilten,1,9
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Zell,2,21
+Tyrol,TINETZ - Tiroler Netze GmbH,UW Zirl,2,20
+Vorarlberg,Vorarlberg Energy Networks GmbH,UW Andelsbuch,5.03,10.9
+Vorarlberg,Vorarlberg Energy Networks GmbH,UW Brederis,5.76,26.65
+Vorarlberg,Vorarlberg Energy Networks GmbH,UW Bürs 10kV,2.82,26.99
+Vorarlberg,Vorarlberg Energy Networks GmbH,UW Bürs 30kV,2.3,4.68
+Vorarlberg,Vorarlberg Energy Networks GmbH,UW Dornbirn South,6.47,59.53
+Vorarlberg,Vorarlberg Energy Networks GmbH,UW Feldkirch,2.04,17.76
+Vorarlberg,Vorarlberg Energy Networks GmbH,Frastanz substation 10kV,2.89,23.61
+Vorarlberg,Vorarlberg Energy Networks GmbH,Frastanz substation 30kV,4.87,5.28
+Vorarlberg,Vorarlberg Energy Networks GmbH,UW Gisingen,0.35,17.49
+Vorarlberg,Vorarlberg Energy Networks GmbH,UW Götzis,5.1,22.02
+Vorarlberg,Vorarlberg Energy Networks GmbH,UW Hard,3.33,29.67
+Vorarlberg,Vorarlberg Energy Networks GmbH,UW Hazel bushes,3.75,29.25
+Vorarlberg,Vorarlberg Energy Networks GmbH,UW Höchst,3.6,29.4
+Vorarlberg,Vorarlberg Energy Networks GmbH,UW Hofsteig,9.04,31.8
+Vorarlberg,Vorarlberg Energy Networks GmbH,UW Hohenems,5.16,24.15
+Vorarlberg,Vorarlberg Energy Networks GmbH,UW Hörbranz,2.96,16.38
+Vorarlberg,Vorarlberg Energy Networks GmbH,UW Lustenau,5.99,18.68
+Vorarlberg,Vorarlberg Energy Networks GmbH,UW Nenzing,6.06,19.55
+Vorarlberg,Vorarlberg Energy Networks GmbH,UW Rauz,0.67,23.32
+Vorarlberg,Vorarlberg Energy Networks GmbH,UW Rieden,2.67,27.13
+Vorarlberg,Vorarlberg Energy Networks GmbH,UW Tschagguns,2.03,8.14
+Vorarlberg,Vorarlberg Energy Networks GmbH,UW Vorderwald,5.97,2.59
+Vorarlberg,Vorarlberg Energy Networks GmbH,UW Vorkloster,1.52,31.48
+Vorarlberg,Vorarlberg Energy Networks GmbH,UW Weiler Klaus,4.79,22.83
+Vienna,Wiener Netze GmbH,UW EISENSTADTPLATZ,0.07,71.71
+Vienna,Wiener Netze GmbH,UW ESSLING,0.13,0
+Vienna,Wiener Netze GmbH,UW FAVORITES,0.02,76.35
+Vienna,Wiener Netze GmbH,UW GAUDENZDORF,0.06,76.29
+Vienna,Wiener Netze GmbH,UW HANDELSKAI,0,76.99
+Vienna,Wiener Netze GmbH,UW HEILIGENSTADT,0.21,64.31
+Vienna,Wiener Netze GmbH,UW JOSEFSTADT,0.03,39.6
+Vienna,Wiener Netze GmbH,UW KAGRAN,0.32,15.39
+Vienna,Wiener Netze GmbH,UW KAISEREBERSDORF,0.25,0
+Vienna,Wiener Netze GmbH,UW KAUNITZGASSE,0,78.87
+Vienna,Wiener Netze GmbH,UW LANDSTRASSE,0.09,73.58
+Vienna,Wiener Netze GmbH,UW LEOPOLDAU 10KV,0.03,28.53
+Vienna,Wiener Netze GmbH,UW LEOPOLDAU 20KV,0.19,56.02
+Vienna,Wiener Netze GmbH,UW LEOPOLDSTADT,0.05,77.61
+Vienna,Wiener Netze GmbH,UW LIESING 10KV,0.23,32.38
+Vienna,Wiener Netze GmbH,UW LIESING 20KV,0.16,71.84
+Vienna,Wiener Netze GmbH,UW MARIAHILF,0.04,77.79
+Vienna,Wiener Netze GmbH,UW MESSE,0.42,36.08
+Vienna,Wiener Netze GmbH,UW MICHELBEUERN,0.13,78.46
+Vienna,Wiener Netze GmbH,UW NEUBADGASSE,0,79.13
+Vienna,Wiener Netze GmbH,UW NORTH,0.05,64.12
+Vienna,Wiener Netze GmbH,UW OTTAKRING,0.07,68.81
+Vienna,Wiener Netze GmbH,UW PENZING,0.14,73.2
+Vienna,Wiener Netze GmbH,UW MELTING,0.09,77.06
+Vienna,Wiener Netze GmbH,UW SCHWECHAT,0.01,19.76
+Vienna,Wiener Netze GmbH,UW SIMMERING,0.3,97.06
+Vienna,Wiener Netze GmbH,UW SPEISING,0.52,63.1
+Vienna,Wiener Netze GmbH,UW STADLAU 10KV,0.35,23.59
+Vienna,Wiener Netze GmbH,UW STADLAU 20KV,1.4,60.43
+Vienna,Wiener Netze GmbH,UW SOUTH,0.14,69.53
+Vienna,Wiener Netze GmbH,UW SOUTHEAST,0.56,28.77
+Vienna,Wiener Netze GmbH,UW WÄHRING,0.01,71.58
+Vienna,Wiener Netze GmbH,UW WEIßGERBER,0,76.83
+Vienna,Wiener Netze GmbH,UW WEST,0.26,56.67
+Vienna,Wiener Netze GmbH,UW WIENERBERG,0,37.31
+Vienna,Wiener Netze GmbH,UW ZEDLITZHALLE,0,79.43
