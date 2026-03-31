@@ -404,6 +404,12 @@
           <span class="label">HV substations</span>
           <span class="count" id="eb-count"></span>
         </label>
+        <div id="dso-legend" style="margin:4px 0 6px;padding:4px 0 2px;border-top:1px solid var(--outline)"></div>
+        <label class="layer-row" style="margin-top:2px">
+          <input type="checkbox" id="cb-dso-territories">
+          <span style="width:20px;height:8px;background:linear-gradient(to right,#e11d48,#2563eb,#16a34a,#d97706,#7c3aed,#0891b2,#db2777,#65a30d,#f97316);display:inline-block;border-radius:3px;flex-shrink:0"></span>
+          <span class="label">DSO territories</span>
+        </label>
         <label class="layer-row" style="margin-top:2px">
           <input type="checkbox" id="cb-region-overlay">
           <span style="width:20px;height:8px;background:linear-gradient(to right,#312e81,#4f46e5,#0ea5e9,#22c55e,#eab308,#ef4444);display:inline-block;border-radius:3px;flex-shrink:0"></span>
@@ -625,6 +631,32 @@
     'Vorarlberg': '#f97316',
   };
 
+  // English state name → color (mirrors regionColors palette)
+  const stateColors = {
+    'Vienna':        '#e11d48',
+    'Lower Austria': '#2563eb',
+    'Upper Austria': '#16a34a',
+    'Burgenland':    '#d97706',
+    'Styria':        '#7c3aed',
+    'Carinthia':     '#0891b2',
+    'Salzburg':      '#db2777',
+    'Tyrol':         '#65a30d',
+    'Vorarlberg':    '#f97316',
+  };
+
+  // DSOs grouped by state for legend
+  const DSO_BY_STATE = {
+    'Vienna':        ['Wiener Netze GmbH'],
+    'Lower Austria': ['Netz Niederösterreich GmbH', 'Wiener Netze GmbH'],
+    'Upper Austria': ['Netz Oberösterreich GmbH', 'Linz Netz GmbH', 'eww ag', 'Energie Ried GmbH'],
+    'Burgenland':    ['Netz Burgenland GmbH'],
+    'Styria':        ['Energienetze Steiermark GmbH', 'Stromnetz Graz GmbH', 'Feistritzwerke-STEWEAG GmbH', 'ENVESTA Energy & Services GmbH', 'Stadtwerke Judenburg AG', 'Kapfenberg Municipal Utilities GmbH'],
+    'Carinthia':     ['KNG - Kärnten Netz GmbH', 'Energie Klagenfurt GmbH'],
+    'Salzburg':      ['Salzburg Netz GmbH', 'Netz Oberösterreich GmbH'],
+    'Tyrol':         ['TINETZ - Tiroler Netze GmbH', 'IKB - Innsbruckerkommunalbetriebe AG', 'Reutte Electricity Works AG'],
+    'Vorarlberg':    ['Vorarlberg Energy Networks GmbH'],
+  };
+
   // Distance → colour (green 0km → yellow 5km → red 15km+)
   function toggleSection(id) {
     document.getElementById(id).classList.toggle('open');
@@ -668,6 +700,10 @@
 
   const map = L.map('map').setView([47.5, 14.0], 7);
 
+  // Create DSO pane immediately so it exists before any layer references it
+  const dsoPane = map.createPane('dsoPane');
+  dsoPane.style.zIndex = 350; // below overlayPane (400) where markers live
+
   // ── EB capacity colour helpers ──
   const EB_MAX_CAPACITY = 97.06;
 
@@ -692,11 +728,13 @@
     return `rgb(${c[0]},${c[1]},${c[2]})`;
   }
 
-  function ebSubstationIcon(avail) {
-    const color = ebCapacityColor(avail);
+  function ebSubstationIcon(avail, stateColor) {
+    const capColor = ebCapacityColor(avail);
+    const fill  = stateColor || capColor;
+    const border = stateColor ? capColor : 'white';
     return L.divIcon({
-      html: `<div style="width:11px;height:11px;background:${color};border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,0.4);transform:rotate(45deg)"></div>`,
-      className: '', iconSize: [11,11], iconAnchor: [5.5,5.5]
+      html: `<div style="width:13px;height:13px;background:${fill};border:2.5px solid ${border};box-shadow:0 1px 4px rgba(0,0,0,0.45);transform:rotate(45deg)"></div>`,
+      className: '', iconSize: [13,13], iconAnchor: [6.5,6.5]
     });
   }
 
@@ -724,6 +762,78 @@
   map.on('zoomend', () => {
     if (showRegionOverlay) heatLayer.setOptions(heatOptsForZoom(map.getZoom()));
   });
+
+  // ── DSO territory overlay (Austrian state GeoJSON) ───────
+  let dsoTerritoryLayer = null;
+  let dsoGeoJSONCache   = null;
+  let showDsoTerritories = false;
+
+  // German state name (GeoJSON) → regionColors key
+  const geoNameToColor = {
+    'Wien':             '#e11d48',
+    'Niederösterreich': '#2563eb',
+    'Oberösterreich':   '#16a34a',
+    'Burgenland':       '#d97706',
+    'Steiermark':       '#7c3aed',
+    'Kärnten':          '#0891b2',
+    'Salzburg':         '#db2777',
+    'Tirol':            '#65a30d',
+    'Vorarlberg':       '#f97316',
+  };
+
+  // German state name → DSO list (for tooltip)
+  const geoNameToDSOs = {
+    'Wien':             ['Wiener Netze GmbH'],
+    'Niederösterreich': ['Netz Niederösterreich GmbH', 'Wiener Netze GmbH'],
+    'Oberösterreich':   ['Netz Oberösterreich GmbH', 'Linz Netz GmbH', 'eww ag', 'Energie Ried GmbH'],
+    'Burgenland':       ['Netz Burgenland GmbH'],
+    'Steiermark':       ['Energienetze Steiermark GmbH', 'Stromnetz Graz GmbH', 'Feistritzwerke-STEWEAG GmbH', 'ENVESTA Energy & Services GmbH', 'Stadtwerke Judenburg AG', 'Kapfenberg Municipal Utilities GmbH'],
+    'Kärnten':          ['KNG - Kärnten Netz GmbH', 'Energie Klagenfurt GmbH'],
+    'Salzburg':         ['Salzburg Netz GmbH', 'Netz Oberösterreich GmbH'],
+    'Tirol':            ['TINETZ - Tiroler Netze GmbH', 'IKB - Innsbruckerkommunalbetriebe AG', 'Reutte Electricity Works AG'],
+    'Vorarlberg':       ['Vorarlberg Energy Networks GmbH'],
+  };
+
+  async function buildDsoTerritories() {
+    if (!showDsoTerritories) {
+      if (dsoTerritoryLayer) map.removeLayer(dsoTerritoryLayer);
+      return;
+    }
+    // Lazy-fetch GeoJSON once — GADM Austria level-1 (states), stable academic source
+    // Property NAME_1 uses German state names matching regionColors keys
+    if (!dsoGeoJSONCache) {
+      try {
+        const resp = await fetch('https://geodata.ucdavis.edu/gadm/gadm4.1/json/gadm41_AUT_1.json');
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+        dsoGeoJSONCache = await resp.json();
+      } catch (e) {
+        console.error('DSO territory GeoJSON failed to load:', e);
+        return;
+      }
+    }
+    if (dsoTerritoryLayer) map.removeLayer(dsoTerritoryLayer);
+    dsoTerritoryLayer = L.geoJSON(dsoGeoJSONCache, {
+      pane: 'dsoPane',
+      style: feat => {
+        const name  = feat.properties.NAME_1 || '';
+        const color = geoNameToColor[name] || '#888';
+        return { fillColor: color, fillOpacity: 0.13, color, weight: 1.5, opacity: 0.55 };
+      },
+      onEachFeature: (feat, layer) => {
+        const name  = feat.properties.NAME_1 || 'Unknown';
+        const color = geoNameToColor[name] || '#333';
+        const dsos  = geoNameToDSOs[name] || [];
+        const dsoList = dsos.map(d => `<div style="font-size:11px;color:#555;padding-left:8px">• ${d}</div>`).join('');
+        layer.bindTooltip(
+          `<div style="font-weight:700;font-size:12px;color:${color};margin-bottom:3px">${name}</div>${dsoList}`,
+          { sticky: true, opacity: 0.97 }
+        );
+        layer.on('mouseover', function() { this.setStyle({ fillOpacity: 0.28, weight: 2.5 }); });
+        layer.on('mouseout',  function() { dsoTerritoryLayer.resetStyle(this); });
+      }
+    });
+    dsoTerritoryLayer.addTo(map);
+  }
 
   function buildRegionOverlay() {
     if (showRegionOverlay) {
@@ -858,7 +968,7 @@
   const ebSubCluster = L.markerClusterGroup({
     ...clusterOpts,
     iconCreateFunction: c => L.divIcon({
-      html: `<div style="background:${EB_COLOR};color:white;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;box-shadow:0 2px 6px rgba(0,0,0,0.25)">${c.getChildCount()}</div>`,
+      html: `<div style="background:#334155;color:white;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;box-shadow:0 2px 6px rgba(0,0,0,0.25)">${c.getChildCount()}</div>`,
       className: '', iconSize: [32,32]
     })
   });
@@ -981,7 +1091,8 @@
 
   // Build ebutilities.at substation markers
   const ebSubMarkers = ebSubstations.map(s => {
-    const m = L.marker([s.latitude, s.longitude], { icon: ebSubstationIcon(s.availableCapacity) });
+    const stateColor = stateColors[s.state] || null;
+    const m = L.marker([s.latitude, s.longitude], { icon: ebSubstationIcon(s.availableCapacity, stateColor) });
     const updated = new Date(s.updatedOn * 1000).toLocaleDateString('de-AT');
     const avail = s.availableCapacity === 0 ? '<span style="color:#ef4444;font-weight:700">0 (full)</span>'
                 : `<span style="color:#10b981;font-weight:700">${s.availableCapacity} MW</span>`;
@@ -1017,6 +1128,31 @@
     m._visible = true;
     return m;
   });
+
+  // ── DSO legend ───────────────────────────────────────────
+  (function buildDsoLegend() {
+    const el = document.getElementById('dso-legend');
+    if (!el) return;
+    const stateOrder = ['Vienna','Lower Austria','Upper Austria','Burgenland','Styria','Carinthia','Salzburg','Tyrol','Vorarlberg'];
+    const stateLabels = {
+      'Vienna':'Vienna','Lower Austria':'Lower Austria','Upper Austria':'Upper Austria',
+      'Burgenland':'Burgenland','Styria':'Styria','Carinthia':'Carinthia',
+      'Salzburg':'Salzburg','Tyrol':'Tyrol','Vorarlberg':'Vorarlberg',
+    };
+    let html = '';
+    stateOrder.forEach(state => {
+      const color = stateColors[state] || '#888';
+      const dsos  = DSO_BY_STATE[state] || [];
+      html += `<div style="margin-bottom:5px">` +
+        `<div style="display:flex;align-items:center;gap:5px;margin-bottom:2px">` +
+          `<span style="width:9px;height:9px;background:${color};border-radius:2px;flex-shrink:0;display:inline-block"></span>` +
+          `<span style="font-size:10px;font-weight:700;color:var(--text)">${stateLabels[state]}</span>` +
+        `</div>` +
+        dsos.map(d => `<div style="font-size:10px;color:var(--muted);padding-left:14px;line-height:1.6">${d}</div>`).join('') +
+      `</div>`;
+    });
+    el.innerHTML = html;
+  })();
 
     // Plain layer group used in proximity/heatmap mode (no clustering)
   const stationHeatGroup = L.layerGroup();
@@ -1327,6 +1463,11 @@
   });
 
   // Region capacity overlay + legend
+  document.getElementById('cb-dso-territories').addEventListener('change', e => {
+    showDsoTerritories = e.target.checked;
+    buildDsoTerritories();
+  });
+
   document.getElementById('cb-region-overlay').addEventListener('change', e => {
     showRegionOverlay = e.target.checked;
     document.getElementById('heat-legend').style.display = e.target.checked ? 'block' : 'none';
