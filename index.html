@@ -817,7 +817,7 @@
       style: feat => {
         const name  = feat.properties.NAME_1 || '';
         const color = geoNameToColor[name] || '#888';
-        return { fillColor: color, fillOpacity: 0.13, color, weight: 1.5, opacity: 0.55 };
+        return { fillColor: color, fillOpacity: 0.35, color, weight: 2, opacity: 0.75 };
       },
       onEachFeature: (feat, layer) => {
         const name  = feat.properties.NAME_1 || 'Unknown';
@@ -828,7 +828,7 @@
           `<div style="font-weight:700;font-size:12px;color:${color};margin-bottom:3px">${name}</div>${dsoList}`,
           { sticky: true, opacity: 0.97 }
         );
-        layer.on('mouseover', function() { this.setStyle({ fillOpacity: 0.28, weight: 2.5 }); });
+        layer.on('mouseover', function() { this.setStyle({ fillOpacity: 0.55, weight: 3 }); });
         layer.on('mouseout',  function() { dsoTerritoryLayer.resetStyle(this); });
       }
     });
