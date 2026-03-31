@@ -12,7 +12,7 @@ from pathlib import Path
 
 import pandas as pd
 
-EXCEL_PATH = Path("data/TOP 100 OTA Sites ARN 20260327.xlsx")
+EXCEL_PATH = Path("data/TOP 100 OTA Sites ARN 20260331.xlsx")
 HTML_PATH  = Path("index.html")
 
 
@@ -39,20 +39,23 @@ def main() -> None:
         return col_lower[name.lower()]
 
     df = df.rename(columns={
-        col("site id"):                     "site_id",
-        col("current no. of tenants"):      "tenants",
-        col("distance from power meter"):   "pm_dist",
+        col("site id"):                        "site_id",
+        col("current no. of tenants"):         "tenants",
+        col("distance from power meter"):      "pm_dist",
         col("notes / additional information"): "pm_note",
+        col("consumption of the site (kw)"):   "consumption_kw",
     })
     df["site_id"] = df["site_id"].astype(str)
     meta = {}
     for _, row in df.iterrows():
-        tenants = None if pd.isna(row["tenants"]) else int(row["tenants"])
-        pm_dist = None if pd.isna(row["pm_dist"]) else float(row["pm_dist"])
+        tenants        = None if pd.isna(row["tenants"])        else int(row["tenants"])
+        pm_dist        = None if pd.isna(row["pm_dist"])        else float(row["pm_dist"])
+        consumption_kw = None if pd.isna(row["consumption_kw"]) else float(row["consumption_kw"])
         meta[row["site_id"]] = {
-            "tenants":  tenants,
-            "pmDist":   pm_dist,
-            "pmStatus": pm_status(row["pm_note"]),
+            "tenants":       tenants,
+            "pmDist":        pm_dist,
+            "pmStatus":      pm_status(row["pm_note"]),
+            "consumptionKw": consumption_kw,
         }
 
     # ── Read HTML ─────────────────────────────────────────────
@@ -73,9 +76,10 @@ def main() -> None:
             enriched += 1
         else:
             # defaults so JS never sees undefined
-            s.setdefault("tenants",  None)
-            s.setdefault("pmDist",   None)
-            s.setdefault("pmStatus", "unknown")
+            s.setdefault("tenants",       None)
+            s.setdefault("pmDist",        None)
+            s.setdefault("pmStatus",      "unknown")
+            s.setdefault("consumptionKw", None)
 
     new_json = json.dumps(sites, ensure_ascii=False, separators=(",", ":"))
     new_html = html[:m.start(2)] + new_json + html[m.end(2):]
