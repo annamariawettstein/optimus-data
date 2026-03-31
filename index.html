@@ -436,7 +436,7 @@
         <label class="layer-row">
           <input type="checkbox" id="cb-eb-substations" checked>
           <span class="swatch-diamond" style="background:#10b981"></span>
-          <span class="label">HV substations</span>
+          <span class="label">Primary substations (Netzebene 4 | 110kV or 30kV → 10kV)</span>
           <span class="count" id="eb-count"></span>
         </label>
         <div id="dso-legend" style="margin:4px 0 6px;padding:4px 0 2px;border-top:1px solid var(--outline)"></div>
@@ -1297,7 +1297,7 @@ const AUSTRIA_STATES_GEOJSON = {"type":"FeatureCollection","name":"gadm41_AUT_1"
   const SCORE_WEIGHTS = {
     capacity : 0.50,   // Available grid capacity  (higher MW = better)
     distSub  : 0.30,   // Distance to nearest distribution substation (closer = better)
-    ebDist   : 0.20,   // Distance to nearest HV grid substation      (closer = better)
+    ebDist   : 0.20,   // Distance to nearest primary substation (Netzebene 4)      (closer = better)
   };
   const EB_MAX_CAP = 97.06; // Maximum observed available capacity (MW) — normalization ceiling
 
@@ -1361,7 +1361,7 @@ const AUSTRIA_STATES_GEOJSON = {"type":"FeatureCollection","name":"gadm41_AUT_1"
         `</div>` +
         `<div class="top-row-detail">` +
           `<div class="detail-row"><span class="detail-label">Grid substation</span><span>${s.ebName}</span></div>` +
-          `<div class="detail-row"><span class="detail-label">Distance to HV substation</span><span>${distFmt(s.ebDist)}</span></div>` +
+          `<div class="detail-row"><span class="detail-label">Distance to primary substation (Netzebene 4)</span><span>${distFmt(s.ebDist)}</span></div>` +
           `<div class="detail-row"><span class="detail-label">Dist. substation</span><span>${s.distSubName || '—'}</span></div>` +
           `<div class="detail-row"><span class="detail-label">Tenants</span><span>${s.tenants != null ? s.tenants : '—'}</span></div>` +
           `<div class="detail-row"><span class="detail-label">Power meter</span><span>${s.pmStatus === 'at_site' ? '&#x2705; At site' + (s.pmDist != null ? ' (' + s.pmDist + ' m)' : '') : s.pmStatus === 'not_at_site' ? '&#x274C; Not at site' + (s.pmDist != null ? ' (' + s.pmDist + ' m)' : '') : s.pmStatus === 'needs_check' ? '&#x26A0;&#xFE0F; Needs check' : '—'}</span></div>` +
@@ -1607,7 +1607,7 @@ const AUSTRIA_STATES_GEOJSON = {"type":"FeatureCollection","name":"gadm41_AUT_1"
         'Street':                            s.street,
         'Latitude':                          s.lat,
         'Longitude':                         s.lon,
-        // Grid (HV) substation
+        // Grid (primary) substation
         'Grid Substation':                   s.ebName,
         'Distance to Grid Substation (km)':  parseFloat(s.ebDist.toFixed(3)),
         'Available Grid Capacity (MW)':      s.ebCapacity,
