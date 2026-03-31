@@ -195,6 +195,31 @@
       flex-shrink: 0;
     }
     #search-clear:hover { color: var(--text); }
+    #search-box { position: relative; }
+    #search-dropdown {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0; right: 0;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(18px);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow), 0 0 0 1px var(--outline);
+      max-height: 320px; overflow-y: auto; z-index: 1100;
+    }
+    #search-dropdown::-webkit-scrollbar { width: 3px; }
+    #search-dropdown::-webkit-scrollbar-thumb { background: var(--surface-variant); border-radius: 2px; }
+    .search-result {
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: center; gap: 6px;
+      padding: 9px 14px; cursor: pointer; border-bottom: 1px solid var(--outline);
+      transition: background .1s;
+    }
+    .search-result:last-child { border-bottom: none; }
+    .search-result:hover { background: rgba(226,223,255,0.25); }
+    .search-result-id { font-size: 12px; font-weight: 600; color: var(--text); }
+    .search-result-loc { font-size: 11px; color: var(--muted); margin-top: 1px; }
+    .search-result-region {
+      font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 999px;
+      white-space: nowrap;
+    }
+    .search-no-results { padding: 14px; font-size: 12px; color: var(--muted); text-align: center; }
 
     /* ── Basemap toggle ──────────────────────────────────── */
     #basemap-toggle {
@@ -393,6 +418,7 @@
     <input id="search-input" type="text" placeholder="Search site ID, city, OTA ID…" />
     <span id="search-count"></span>
     <button id="search-clear" title="Clear">✕</button>
+    <div id="search-dropdown"></div>
   </div>
 
   <div id="controls">
@@ -1338,7 +1364,6 @@ const AUSTRIA_STATES_GEOJSON = {"type":"FeatureCollection","name":"gadm41_AUT_1"
           `<div class="detail-row"><span class="detail-label">Distance to HV substation</span><span>${distFmt(s.ebDist)}</span></div>` +
           `<div class="detail-row"><span class="detail-label">Dist. substation</span><span>${s.distSubName || '—'}</span></div>` +
           `<div class="detail-row"><span class="detail-label">Tenants</span><span>${s.tenants != null ? s.tenants : '—'}</span></div>` +
-          `<div class="detail-row"><span class="detail-label">Site load</span><span>${s.consumptionKw != null ? s.consumptionKw + ' kW' : '—'}</span></div>` +
           `<div class="detail-row"><span class="detail-label">Power meter</span><span>${s.pmStatus === 'at_site' ? '&#x2705; At site' + (s.pmDist != null ? ' (' + s.pmDist + ' m)' : '') : s.pmStatus === 'not_at_site' ? '&#x274C; Not at site' + (s.pmDist != null ? ' (' + s.pmDist + ' m)' : '') : s.pmStatus === 'needs_check' ? '&#x26A0;&#xFE0F; Needs check' : '—'}</span></div>` +
           `<div class="detail-row"><span class="detail-label">Score</span><span>${((s.score/maxScore)*100).toFixed(1)}%</span></div>` +
         `</div>`;
@@ -1492,72 +1517,71 @@ const AUSTRIA_STATES_GEOJSON = {"type":"FeatureCollection","name":"gadm41_AUT_1"
   });
 
   // Search
-  const searchInput = document.getElementById('search-input');
-  const searchCount = document.getElementById('search-count');
-  const searchClear = document.getElementById('search-clear');
+  const searchInput    = document.getElementById('search-input');
+  const searchClear    = document.getElementById('search-clear');
+  const searchDropdown = document.getElementById('search-dropdown');
+
+  function closeDropdown() { searchDropdown.style.display = 'none'; }
 
   function applySearch(term) {
     searchTerm = term.trim().toLowerCase();
     applyFilters();
 
-    const countEl = searchCount;
-    const clearEl = searchClear;
+    searchClear.style.display = searchTerm ? 'block' : 'none';
 
     if (!searchTerm) {
-      countEl.style.display = 'none';
-      clearEl.style.display = 'none';
-      // restore the normal top list
+      closeDropdown();
       renderTopList(topFilter || 50);
       return;
     }
 
-    // Show clear button
-    clearEl.style.display = 'block';
-
-    // Search across ALL stations (not just top 100)
+    // Match across ALL stations
     const matches = stationMarkers.filter(m => m._search.includes(searchTerm));
-    countEl.textContent = matches.length + ' found';
-    countEl.style.display = 'block';
 
-    // Fly to first visible match
-    if (matches.length > 0) {
-      const first = matches[0];
-      map.flyTo([first._lat, first._lon], 13, { duration: 0.7 });
-    }
-
-    // Show matching sites in the list panel, overriding the top filter view
-    const list = document.getElementById('top-list');
-    list.innerHTML = '';
+    // Build dropdown
+    searchDropdown.innerHTML = '';
     if (matches.length === 0) {
-      list.innerHTML = '<div style="padding:18px;font-size:12px;color:var(--muted);text-align:center">No sites match your search</div>';
-      return;
-    }
-    matches.slice(0, 50).forEach(m => {
-      const row = document.createElement('div');
-      row.className = 'top-row';
-      row.innerHTML =
-        `<div class="top-row-main">` +
-          `<div class="top-main-col" style="padding-left:4px">` +
-            `<div class="top-site-name">${m._id}</div>` +
-            `<div class="top-site-loc">${m._region} &middot; ${m._city || ''}</div>` +
+      searchDropdown.innerHTML = '<div class="search-no-results">No sites found</div>';
+    } else {
+      matches.slice(0, 40).forEach(m => {
+        const color = m._regionColor || '#888';
+        const item = document.createElement('div');
+        item.className = 'search-result';
+        item.innerHTML =
+          `<div>` +
+            `<div class="search-result-id">${m._id}</div>` +
+            `<div class="search-result-loc">${m._city || ''}</div>` +
           `</div>` +
-        `</div>`;
-      row.querySelector('.top-row-main').addEventListener('click', () => {
-        map.flyTo([m._lat, m._lon], 15, { duration: 0.6 });
-        setTimeout(() => m.openPopup(), 650);
+          `<span class="search-result-region" style="background:${color}22;color:${color}">${m._region}</span>`;
+        item.addEventListener('mousedown', e => {
+          // mousedown fires before blur so dropdown stays open long enough
+          e.preventDefault();
+          map.flyTo([m._lat, m._lon], 15, { duration: 0.6 });
+          setTimeout(() => m.openPopup(), 650);
+          closeDropdown();
+        });
+        searchDropdown.appendChild(item);
       });
-      list.appendChild(row);
-    });
-    if (matches.length > 50) {
-      list.innerHTML += `<div style="padding:10px 18px;font-size:11px;color:var(--muted)">Showing 50 of ${matches.length} — refine your search</div>`;
+      if (matches.length > 40) {
+        const more = document.createElement('div');
+        more.className = 'search-no-results';
+        more.textContent = `+${matches.length - 40} more — keep typing to narrow down`;
+        searchDropdown.appendChild(more);
+      }
     }
+    searchDropdown.style.display = 'block';
   }
 
-  searchInput.addEventListener('input', e => applySearch(e.target.value));
+  searchInput.addEventListener('input',  e => applySearch(e.target.value));
+  searchInput.addEventListener('focus',  () => { if (searchTerm) searchDropdown.style.display = 'block'; });
+  searchInput.addEventListener('blur',   () => setTimeout(closeDropdown, 150));
   searchInput.addEventListener('keydown', e => {
-    if (e.key === 'Escape') { searchInput.value = ''; applySearch(''); }
+    if (e.key === 'Escape') { searchInput.value = ''; applySearch(''); searchInput.blur(); }
   });
   searchClear.addEventListener('click', () => { searchInput.value = ''; applySearch(''); searchInput.focus(); });
+
+  // Close dropdown on map click
+  map.on('click', closeDropdown);
 
   // ── Export top 100 sites to Excel ────────────────────────
   function exportTopSites() {
