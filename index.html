@@ -175,6 +175,7 @@
       border: 1px solid rgba(200,196,213,0.55);
       box-shadow: var(--shadow);
       transition: border-color .15s, box-shadow .15s;
+      /* needed for dropdown positioning */
     }
     #search-box:focus-within {
       border-color: rgba(31,16,142,0.3);
@@ -195,7 +196,6 @@
       flex-shrink: 0;
     }
     #search-clear:hover { color: var(--text); }
-    #search-box { position: relative; }
     #search-dropdown {
       display: none; position: absolute; top: calc(100% + 6px); left: 0; right: 0;
       background: rgba(255,255,255,0.97); backdrop-filter: blur(18px);
