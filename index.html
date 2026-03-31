@@ -803,7 +803,7 @@
     // Property NAME_1 uses German state names matching regionColors keys
     if (!dsoGeoJSONCache) {
       try {
-        const resp = await fetch('https://geodata.ucdavis.edu/gadm/gadm4.1/json/gadm41_AUT_1.json');
+        const resp = await fetch('data/austria_states.geojson');
         if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
         dsoGeoJSONCache = await resp.json();
       } catch (e) {
