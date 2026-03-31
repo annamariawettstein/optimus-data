@@ -185,6 +185,16 @@
       color: var(--text); background: transparent;
     }
     #search-input::placeholder { color: var(--muted); }
+    #search-count {
+      font-size: 11px; font-weight: 600; color: var(--primary);
+      white-space: nowrap; display: none;
+    }
+    #search-clear {
+      border: none; background: none; cursor: pointer; padding: 0;
+      color: var(--muted); font-size: 15px; line-height: 1; display: none;
+      flex-shrink: 0;
+    }
+    #search-clear:hover { color: var(--text); }
 
     /* ── Basemap toggle ──────────────────────────────────── */
     #basemap-toggle {
@@ -377,10 +387,12 @@
   </button>
 
   <div id="search-box">
-    <svg width="15" height="15" fill="none" stroke="#999" stroke-width="2" viewBox="0 0 24 24">
+    <svg width="15" height="15" fill="none" stroke="#999" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0">
       <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
     </svg>
-    <input id="search-input" type="text" placeholder="Search stations, cities, IDs…" />
+    <input id="search-input" type="text" placeholder="Search site ID, city, OTA ID…" />
+    <span id="search-count"></span>
+    <button id="search-clear" title="Clear">✕</button>
   </div>
 
   <div id="controls">
@@ -979,6 +991,7 @@ const AUSTRIA_STATES_GEOJSON = {"type":"FeatureCollection","name":"gadm41_AUT_1"
     m._lat = s.lat;
     m._lon = s.lon;
     m._region = s.region;
+    m._city = s.city;
     m._regionColor = regionColor;
     m._dist = s.nearestDist;
     m._nearestSub = s.nearestSub;
@@ -1479,10 +1492,72 @@ const AUSTRIA_STATES_GEOJSON = {"type":"FeatureCollection","name":"gadm41_AUT_1"
   });
 
   // Search
-  document.getElementById('search-input').addEventListener('input', e => {
-    searchTerm = e.target.value.trim().toLowerCase();
+  const searchInput = document.getElementById('search-input');
+  const searchCount = document.getElementById('search-count');
+  const searchClear = document.getElementById('search-clear');
+
+  function applySearch(term) {
+    searchTerm = term.trim().toLowerCase();
     applyFilters();
+
+    const countEl = searchCount;
+    const clearEl = searchClear;
+
+    if (!searchTerm) {
+      countEl.style.display = 'none';
+      clearEl.style.display = 'none';
+      // restore the normal top list
+      renderTopList(topFilter || 50);
+      return;
+    }
+
+    // Show clear button
+    clearEl.style.display = 'block';
+
+    // Search across ALL stations (not just top 100)
+    const matches = stationMarkers.filter(m => m._search.includes(searchTerm));
+    countEl.textContent = matches.length + ' found';
+    countEl.style.display = 'block';
+
+    // Fly to first visible match
+    if (matches.length > 0) {
+      const first = matches[0];
+      map.flyTo([first._lat, first._lon], 13, { duration: 0.7 });
+    }
+
+    // Show matching sites in the list panel, overriding the top filter view
+    const list = document.getElementById('top-list');
+    list.innerHTML = '';
+    if (matches.length === 0) {
+      list.innerHTML = '<div style="padding:18px;font-size:12px;color:var(--muted);text-align:center">No sites match your search</div>';
+      return;
+    }
+    matches.slice(0, 50).forEach(m => {
+      const row = document.createElement('div');
+      row.className = 'top-row';
+      row.innerHTML =
+        `<div class="top-row-main">` +
+          `<div class="top-main-col" style="padding-left:4px">` +
+            `<div class="top-site-name">${m._id}</div>` +
+            `<div class="top-site-loc">${m._region} &middot; ${m._city || ''}</div>` +
+          `</div>` +
+        `</div>`;
+      row.querySelector('.top-row-main').addEventListener('click', () => {
+        map.flyTo([m._lat, m._lon], 15, { duration: 0.6 });
+        setTimeout(() => m.openPopup(), 650);
+      });
+      list.appendChild(row);
+    });
+    if (matches.length > 50) {
+      list.innerHTML += `<div style="padding:10px 18px;font-size:11px;color:var(--muted)">Showing 50 of ${matches.length} — refine your search</div>`;
+    }
+  }
+
+  searchInput.addEventListener('input', e => applySearch(e.target.value));
+  searchInput.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { searchInput.value = ''; applySearch(''); }
   });
+  searchClear.addEventListener('click', () => { searchInput.value = ''; applySearch(''); searchInput.focus(); });
 
   // ── Export top 100 sites to Excel ────────────────────────
   function exportTopSites() {
