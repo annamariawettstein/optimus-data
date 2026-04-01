@@ -47,11 +47,18 @@ def main() -> None:
         col("consumption of the site (kw)"):   "consumption_kw",
     })
     df["site_id"] = df["site_id"].astype(str)
-    # ── Load land-use classifications ─────────────────────────
+    # ── Load land-use / noise-safety classifications ──────────
     land_use_map = {}
+    noise_safe_map = {}
+    nearby_landuse_map = {}
+    residential_count_map = {}
     if LAND_USE_PATH.exists():
         for entry in json.loads(LAND_USE_PATH.read_text(encoding="utf-8")):
-            land_use_map[str(entry["site_id"])] = entry.get("land_use", "unknown")
+            sid = str(entry["site_id"])
+            land_use_map[sid] = entry.get("land_use", "unknown")
+            noise_safe_map[sid] = entry.get("noise_safe")
+            nearby_landuse_map[sid] = entry.get("nearby_landuse", "unknown")
+            residential_count_map[sid] = entry.get("residential_count", None)
     else:
         print(f"Warning: {LAND_USE_PATH} not found — landUse will default to 'unknown'")
 
@@ -60,12 +67,16 @@ def main() -> None:
         tenants        = None if pd.isna(row["tenants"])        else int(row["tenants"])
         pm_dist        = None if pd.isna(row["pm_dist"])        else float(row["pm_dist"])
         consumption_kw = None if pd.isna(row["consumption_kw"]) else float(row["consumption_kw"])
-        meta[row["site_id"]] = {
-            "tenants":       tenants,
-            "pmDist":        pm_dist,
-            "pmStatus":      pm_status(row["pm_note"]),
-            "consumptionKw": consumption_kw,
-            "landUse":       land_use_map.get(row["site_id"], "unknown"),
+        sid = row["site_id"]
+        meta[sid] = {
+            "tenants":          tenants,
+            "pmDist":           pm_dist,
+            "pmStatus":         pm_status(row["pm_note"]),
+            "consumptionKw":    consumption_kw,
+            "landUse":          land_use_map.get(sid, "unknown"),
+            "noiseSafe":        noise_safe_map.get(sid),
+            "nearbyLanduse":    nearby_landuse_map.get(sid, "unknown"),
+            "residentialCount": residential_count_map.get(sid),
         }
 
     # ── Read HTML ─────────────────────────────────────────────
@@ -86,11 +97,14 @@ def main() -> None:
             enriched += 1
         else:
             # defaults so JS never sees undefined
-            s.setdefault("tenants",       None)
-            s.setdefault("pmDist",        None)
-            s.setdefault("pmStatus",      "unknown")
-            s.setdefault("consumptionKw", None)
-            s.setdefault("landUse",       "unknown")
+            s.setdefault("tenants",          None)
+            s.setdefault("pmDist",           None)
+            s.setdefault("pmStatus",         "unknown")
+            s.setdefault("consumptionKw",    None)
+            s.setdefault("landUse",          "unknown")
+            s.setdefault("noiseSafe",        None)
+            s.setdefault("nearbyLanduse",    "unknown")
+            s.setdefault("residentialCount", None)
 
     new_json = json.dumps(sites, ensure_ascii=False, separators=(",", ":"))
     new_html = html[:m.start(2)] + new_json + html[m.end(2):]
