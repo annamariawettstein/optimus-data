@@ -559,6 +559,7 @@
     <div id="top-panel-body">
       <div class="top-filter-row">
         <button class="top-filter-btn active" id="btn-top100">Top 100</button>
+        <button class="top-filter-btn" id="btn-top55">Top 55</button>
         <button class="top-filter-btn" id="btn-all-sites">All 1,514</button>
         <button class="top-filter-btn pm-btn" data-n="pmAll" id="btn-pm-all">&#x26A1; Has PM</button>
         <button class="top-filter-btn non-urban-btn" id="btn-non-urban">&#x1F333; Industrial / Rural</button>
@@ -967,6 +968,19 @@
   topSites.forEach(t => { topSiteMeta[t.id] = t; });
   const pmAllSites   = topSites.filter(s => s.pmStatus === 'at_site');
 
+  // Curated Top 55 list:
+  //  35 industrial/rural + PM at site
+  //  15 residential + PM at site
+  //   5 industrial/rural + no PM at site
+  const _indPm  = topSites.filter(s => s.noiseSafe === true && s.pmStatus === 'at_site');
+  const _resPm  = topSites.filter(s => s.noiseSafe !== true && s.pmStatus === 'at_site');
+  const _indNo  = topSites.filter(s => s.noiseSafe === true && s.pmStatus !== 'at_site');
+  const top55Sites = [
+    ..._indPm.slice(0, 35),
+    ..._resPm.slice(0, 15),
+    ..._indNo.slice(0, 5),
+  ];
+
   // Build station markers
   const stationMarkers = stations.map(s => {
     const regionColor = regionColors[s.region] || '#888';
@@ -1152,6 +1166,7 @@
   let nonUrbanFilter = false;
   const topSiteIdSets = {
     100:      new Set(topSites.map(s => s.id)),
+    55:       new Set(top55Sites.map(s => s.id)),
     pmAll:    new Set(pmAllSites.map(s => s.id)),
   };
   let showDistSubs = true;    // minor_distribution + distribution
@@ -1278,6 +1293,7 @@
     list.innerHTML = '';
     let subset = Array.isArray(n) ? n
       : n === 'pmAll'   ? pmAllSites
+      : n === 55        ? top55Sites
       : topSites.slice(0, n);
     if (nonUrbanFilter) subset = subset.filter(s => s.noiseSafe === true);
     subset.forEach((s, idx) => {
@@ -1377,28 +1393,42 @@
     });
   }
 
-  function switchToTop100() {
-    document.getElementById('btn-top100').classList.add('active');
-    document.getElementById('btn-all-sites').classList.remove('active');
-    topFilter = 100;
-    setSubFiltersEnabled(true);
-    rerender();
-  }
-
-  function switchToAllSites() {
-    document.getElementById('btn-all-sites').classList.add('active');
-    document.getElementById('btn-top100').classList.remove('active');
-    topFilter = 0;
+  const mainFilterBtns = ['btn-top100', 'btn-top55', 'btn-all-sites'];
+  function clearMainFilter() {
+    mainFilterBtns.forEach(id => document.getElementById(id).classList.remove('active'));
     nonUrbanFilter = false;
     dsoMode = false;
     document.getElementById('btn-pm-all').classList.remove('active');
     document.getElementById('btn-non-urban').classList.remove('active');
     document.getElementById('btn-dso-mode').classList.remove('active');
+  }
+
+  function switchToTop100() {
+    clearMainFilter();
+    document.getElementById('btn-top100').classList.add('active');
+    topFilter = 100;
+    setSubFiltersEnabled(true);
+    rerender();
+  }
+
+  function switchToTop55() {
+    clearMainFilter();
+    document.getElementById('btn-top55').classList.add('active');
+    topFilter = 55;
+    setSubFiltersEnabled(false);
+    rerender();
+  }
+
+  function switchToAllSites() {
+    clearMainFilter();
+    document.getElementById('btn-all-sites').classList.add('active');
+    topFilter = 0;
     setSubFiltersEnabled(false);
     rerender();
   }
 
   document.getElementById('btn-top100').addEventListener('click', switchToTop100);
+  document.getElementById('btn-top55').addEventListener('click', switchToTop55);
   document.getElementById('btn-all-sites').addEventListener('click', switchToAllSites);
 
   // Has PM toggle — only works within Top 100
@@ -1569,6 +1599,7 @@
 
     let activeSites = topFilter === 0        ? topSites.slice(0, 100)
                     : topFilter === 'pmAll'  ? pmAllSites
+                    : topFilter === 55       ? top55Sites
                     : topSites.slice(0, topFilter);
     if (nonUrbanFilter) activeSites = activeSites.filter(s => s.noiseSafe === true);
 
@@ -1628,11 +1659,12 @@
       { wch: 18 }, // Industrial / Rural
     ];
 
+    const sheetLabel = topFilter === 55 ? 'Top 55' : topFilter === 'pmAll' ? 'Has PM' : nonUrbanFilter ? 'Industrial-Rural' : `Top ${activeSites.length}`;
     const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, 'Top 100 OTA Sites');
+    XLSX.utils.book_append_sheet(wb, ws, `${sheetLabel} OTA Sites`);
 
     const date = new Date().toISOString().slice(0, 10);
-    XLSX.writeFile(wb, `optimus_top100_sites_${date}.xlsx`);
+    XLSX.writeFile(wb, `optimus_${sheetLabel.toLowerCase().replace(/\s+/g, '_')}_sites_${date}.xlsx`);
   }
   </script>
 </body>
