@@ -1567,9 +1567,10 @@
 
     const distFmt = d => d < 1 ? ((d * 1000).toFixed(0) + ' m') : (d.toFixed(2) + ' km');
 
-    const activeSites = topFilter === 0        ? topSites.slice(0, 100)
-                      : topFilter === 'pmAll'  ? pmAllSites
-                      : topSites.slice(0, topFilter);
+    let activeSites = topFilter === 0        ? topSites.slice(0, 100)
+                    : topFilter === 'pmAll'  ? pmAllSites
+                    : topSites.slice(0, topFilter);
+    if (nonUrbanFilter) activeSites = activeSites.filter(s => s.noiseSafe === true);
 
     const rows = activeSites.map((s, idx) => {
       const base = stationLookup[s.id] || {};
