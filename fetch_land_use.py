@@ -1,9 +1,16 @@
 """
 fetch_land_use.py
-Uses OSM Nominatim reverse geocoding to classify each top-100 OTA site
-as: rural, industrial, urban, or unknown.
+Uses the Overpass API to check for residential buildings and residential
+landuse zones within 100 m of each top-100 OTA site.
 
-Run: python3 fetch_land_use.py
+Why 100 m?  Battery storage units produce ~75 dB at 1 m.  Sound drops
+~6 dB per doubling of distance, reaching ~35 dB (ambient) at ~100 m.
+
+Classification:
+  - noise_safe          → no residential features within 100 m
+  - residential_nearby  → residential buildings or landuse within 100 m
+
+Run:  python3 fetch_land_use.py
 Output: site_land_use.json
 """
 
@@ -14,44 +21,86 @@ from pathlib import Path
 import pandas as pd
 import requests
 
-EXCEL_PATH   = Path("data/TOP 100 OTA Sites ARN 20260331.xlsx")
-OUTPUT_PATH  = Path("site_land_use.json")
-NOMINATIM    = "https://nominatim.openstreetmap.org/reverse"
-HEADERS      = {"User-Agent": "optimus-data-landuse/1.0 (anna@conductor.energy)"}
+EXCEL_PATH  = Path("data/TOP 100 OTA Sites ARN 20260331.xlsx")
+OUTPUT_PATH = Path("site_land_use.json")
+OVERPASS_URL = "https://overpass-api.de/api/interpreter"
+HEADERS = {"User-Agent": "optimus-data-landuse/1.0 (anna@conductor.energy)"}
 
-# Address keys in the Nominatim response that signal each category
-INDUSTRIAL_KEYS = {"industrial"}
-RURAL_KEYS      = {"village", "hamlet", "farm", "farmland", "forest",
-                   "nature_reserve", "peak", "valley", "locality"}
-URBAN_KEYS      = {"city", "suburb", "city_district", "borough", "quarter", "town"}
+RADIUS_M = 100  # buffer around each site in metres
+
+# Overpass QL: find residential features within RADIUS_M of a point.
+# Covers:  landuse=residential polygons  +  residential-type buildings
+OVERPASS_QUERY = """
+[out:json][timeout:30];
+(
+  way["landuse"="residential"](around:{radius},{lat},{lon});
+  relation["landuse"="residential"](around:{radius},{lat},{lon});
+  way["building"~"^(residential|apartments|house|detached|semidetached_house|terrace|dormitory)$"](around:{radius},{lat},{lon});
+  node["building"~"^(residential|apartments|house|detached|semidetached_house|terrace|dormitory)$"](around:{radius},{lat},{lon});
+);
+out count;
+"""
+
+# Secondary query: what landuse polygons actually contain the point?
+LANDUSE_QUERY = """
+[out:json][timeout:30];
+is_in({lat},{lon})->.a;
+area.a["landuse"]->.b;
+.b out tags;
+"""
 
 
-def classify(address: dict) -> str:
-    keys = set(address.keys())
-    if keys & INDUSTRIAL_KEYS:
-        return "industrial"
-    if keys & RURAL_KEYS and not (keys & URBAN_KEYS):
-        return "rural"
-    if keys & URBAN_KEYS:
-        return "urban"
-    return "unknown"
-
-
-def reverse_geocode(lat: float, lon: float) -> dict:
+def query_overpass(query: str, lat: float, lon: float) -> dict:
+    """Send a query to Overpass and return the JSON response."""
+    q = query.format(radius=RADIUS_M, lat=lat, lon=lon)
     for attempt in range(3):
         try:
-            resp = requests.get(
-                NOMINATIM,
-                params={"lat": lat, "lon": lon, "format": "json", "zoom": 16},
+            resp = requests.post(
+                OVERPASS_URL,
+                data={"data": q},
                 headers=HEADERS,
-                timeout=15,
+                timeout=60,
             )
             resp.raise_for_status()
             return resp.json()
         except Exception as e:
-            print(f"  Error (attempt {attempt + 1}): {e}")
-            time.sleep(3)
+            print(f"  Overpass error (attempt {attempt + 1}): {e}")
+            time.sleep(5 * (attempt + 1))
     return {}
+
+
+def classify_site(lat: float, lon: float) -> dict:
+    """Return residential count and surrounding landuse for one site."""
+    # 1) Count residential features within radius
+    res = query_overpass(OVERPASS_QUERY, lat, lon)
+    res_count = 0
+    if "elements" in res:
+        for el in res["elements"]:
+            if el.get("type") == "count":
+                res_count = el.get("tags", {}).get("total", 0)
+                res_count = int(res_count)
+                break
+
+    # 2) What landuse zone(s) is the point actually inside?
+    landuse_res = query_overpass(LANDUSE_QUERY, lat, lon)
+    landuse_tags = []
+    for el in landuse_res.get("elements", []):
+        lu = el.get("tags", {}).get("landuse")
+        if lu:
+            landuse_tags.append(lu)
+
+    noise_safe = res_count == 0
+    # Map to a human-readable context string
+    if landuse_tags:
+        nearby_landuse = ", ".join(sorted(set(landuse_tags)))
+    else:
+        nearby_landuse = "unknown"
+
+    return {
+        "noise_safe": noise_safe,
+        "residential_count": res_count,
+        "nearby_landuse": nearby_landuse,
+    }
 
 
 def main() -> None:
@@ -71,25 +120,27 @@ def main() -> None:
         lat = float(row["lat"])
         lon = float(row["lon"])
 
-        data     = reverse_geocode(lat, lon)
-        address  = data.get("address", {})
-        land_use = classify(address)
-        is_non_urban = land_use in ("rural", "industrial")
+        info = classify_site(lat, lon)
+        label = "noise_safe" if info["noise_safe"] else "residential_nearby"
+        print(f"[{i+1}/{total}] {sid} → {label}  "
+              f"(residential={info['residential_count']}, "
+              f"landuse={info['nearby_landuse']})")
 
-        print(f"[{i+1}/{total}] {sid} → {land_use}  "
-              f"(keys: {list(address.keys())[:6]})")
         results.append({
-            "site_id":      sid,
-            "land_use":     land_use,
-            "is_non_urban": is_non_urban,
-            "address_keys": list(address.keys()),
+            "site_id":           sid,
+            "noise_safe":        info["noise_safe"],
+            "residential_count": info["residential_count"],
+            "nearby_landuse":    info["nearby_landuse"],
+            # Backwards-compat: map to the old land_use field used by inject
+            "land_use":          "noise_safe" if info["noise_safe"] else "residential_nearby",
         })
-        time.sleep(1)  # Nominatim rate limit: max 1 req/sec
+        # Be nice to the public Overpass server
+        time.sleep(2)
 
     OUTPUT_PATH.write_text(json.dumps(results, indent=2, ensure_ascii=False))
-    summary = {k: sum(1 for r in results if r["land_use"] == k)
-               for k in ("rural", "industrial", "urban", "unknown")}
-    print(f"\nDone → {OUTPUT_PATH}  |  {summary}")
+    safe = sum(1 for r in results if r["noise_safe"])
+    print(f"\nDone → {OUTPUT_PATH}")
+    print(f"  Noise-safe: {safe}/{total}  |  Near residential: {total - safe}/{total}")
 
 
 if __name__ == "__main__":

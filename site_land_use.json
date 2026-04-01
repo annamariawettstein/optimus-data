@@ -1,1563 +1,702 @@
 [
   {
     "site_id": "150328A",
-    "land_use": "industrial",
-    "is_non_urban": true,
-    "address_keys": [
-      "road",
-      "industrial",
-      "suburb",
-      "city_district",
-      "city",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "industrial",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "150290D",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "city_district",
-      "city",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "industrial",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "150449A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "neighbourhood",
-      "suburb",
-      "city_district",
-      "city",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "unknown",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "130123A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "city_district",
-      "city",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "industrial",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "130030B",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "city_district",
-      "city",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "commercial, industrial",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "140059A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "city_district",
-      "city",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 6,
+    "nearby_landuse": "residential, village_green",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "120120A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "city_district",
-      "city",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 2,
+    "nearby_landuse": "unknown",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "120075B",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "city_district",
-      "city",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "forest, recreation_ground",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "600050A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "city",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 5,
+    "nearby_landuse": "retail",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "120100A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "city_district",
-      "city",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "forest",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "400116A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "neighbourhood",
-      "suburb",
-      "city",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 12,
+    "nearby_landuse": "unknown",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "150502A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "city_district",
-      "city",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 6,
+    "nearby_landuse": "grass, railway",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "640013B",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "neighbourhood",
-      "suburb",
-      "city",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 3,
+    "nearby_landuse": "unknown",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "140013A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "city_district",
-      "city",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 9,
+    "nearby_landuse": "residential",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "840474A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "city_district",
-      "city",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "industrial",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "840102A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "hamlet",
-      "town",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "unknown",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "740052A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "city",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 4,
+    "nearby_landuse": "unknown",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "150279B",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "city_district",
-      "city",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "commercial, forest",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "150261A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "neighbourhood",
-      "suburb",
-      "city_district",
-      "city",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "unknown",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "840228A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "neighbourhood",
-      "suburb",
-      "city_district",
-      "city",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 1,
+    "nearby_landuse": "farmyard, residential",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "220060C",
-    "land_use": "rural",
-    "is_non_urban": true,
-    "address_keys": [
-      "road",
-      "village",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "retail",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "130007E",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "city_district",
-      "city",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 3,
+    "nearby_landuse": "retail",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "520065A",
-    "land_use": "rural",
-    "is_non_urban": true,
-    "address_keys": [
-      "road",
-      "village",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "farmyard",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "440061A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "neighbourhood",
-      "suburb",
-      "city",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 14,
+    "nearby_landuse": "commercial",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "240010A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "village",
-      "town",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "commercial",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "240601A",
-    "land_use": "rural",
-    "is_non_urban": true,
-    "address_keys": [
-      "road",
-      "village",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 25,
+    "nearby_landuse": "industrial",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "400069B",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "neighbourhood",
-      "suburb",
-      "city",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "commercial",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "130076A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "city_district",
-      "city",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 1,
+    "nearby_landuse": "unknown",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "840244A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "neighbourhood",
-      "suburb",
-      "town",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 3,
+    "nearby_landuse": "unknown",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "140025A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "allotments",
-      "suburb",
-      "city_district",
-      "city",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "meadow",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "840268B",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "hamlet",
-      "town",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "meadow",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "240078A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "village",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "unknown",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "840104A",
-    "land_use": "rural",
-    "is_non_urban": true,
-    "address_keys": [
-      "road",
-      "hamlet",
-      "village",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "meadow",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "200024C",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "town",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 7,
+    "nearby_landuse": "unknown",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "640104A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "retail",
-      "suburb",
-      "village",
-      "town",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "forest",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "400144A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "neighbourhood",
-      "suburb",
-      "city",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 5,
+    "nearby_landuse": "unknown",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "840051B",
-    "land_use": "rural",
-    "is_non_urban": true,
-    "address_keys": [
-      "road",
-      "neighbourhood",
-      "hamlet",
-      "village",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "unknown",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "800007A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "neighbourhood",
-      "suburb",
-      "city_district",
-      "city",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 10,
+    "nearby_landuse": "meadow",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "800167B",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "city_district",
-      "village",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "forest",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "240128A",
-    "land_use": "rural",
-    "is_non_urban": true,
-    "address_keys": [
-      "road",
-      "village",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 13,
+    "nearby_landuse": "residential",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "120206A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "city_district",
-      "city",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 1,
+    "nearby_landuse": "industrial",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "700059A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "city",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 3,
+    "nearby_landuse": "residential",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "840255A",
-    "land_use": "rural",
-    "is_non_urban": true,
-    "address_keys": [
-      "neighbourhood",
-      "village",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 2,
+    "nearby_landuse": "unknown",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "840287A",
-    "land_use": "rural",
-    "is_non_urban": true,
-    "address_keys": [
-      "road",
-      "village",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "commercial",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "440066A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "neighbourhood",
-      "suburb",
-      "city",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 19,
+    "nearby_landuse": "unknown",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "870153A",
-    "land_use": "rural",
-    "is_non_urban": true,
-    "address_keys": [
-      "road",
-      "village",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "unknown",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "900005B",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "town",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 5,
+    "nearby_landuse": "recreation_ground, residential",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "900006B",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "town",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 4,
+    "nearby_landuse": "unknown",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "240572A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "hamlet",
-      "suburb",
-      "village",
-      "town",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "farmland",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "740041A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "city",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 1,
+    "nearby_landuse": "unknown",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "150396A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "neighbourhood",
-      "suburb",
-      "city_district",
-      "city",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 6,
+    "nearby_landuse": "grass",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "840031A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "city_district",
-      "city",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 1,
+    "nearby_landuse": "unknown",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "440182A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "neighbourhood",
-      "suburb",
-      "city",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 7,
+    "nearby_landuse": "meadow",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "900036A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "town",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 1,
+    "nearby_landuse": "commercial",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "660004A",
-    "land_use": "rural",
-    "is_non_urban": true,
-    "address_keys": [
-      "hamlet",
-      "village",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "forest",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "520034A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "town",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "unknown",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "220164B",
-    "land_use": "industrial",
-    "is_non_urban": true,
-    "address_keys": [
-      "industrial",
-      "suburb",
-      "village",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 1,
+    "nearby_landuse": "industrial",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "940129A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "town",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "residential",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "840411B",
-    "land_use": "rural",
-    "is_non_urban": true,
-    "address_keys": [
-      "hamlet",
-      "village",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 5,
+    "nearby_landuse": "forest",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "540182B",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "neighbourhood",
-      "hamlet",
-      "village",
-      "town",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 1,
+    "nearby_landuse": "forest",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "240143A",
-    "land_use": "rural",
-    "is_non_urban": true,
-    "address_keys": [
-      "road",
-      "village",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 16,
+    "nearby_landuse": "unknown",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "500097A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "city",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 19,
+    "nearby_landuse": "residential",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "670140A",
-    "land_use": "rural",
-    "is_non_urban": true,
-    "address_keys": [
-      "road",
-      "hamlet",
-      "village",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 1,
+    "nearby_landuse": "meadow",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "900004A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "town",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "unknown",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "740042A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "city",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 2,
+    "nearby_landuse": "unknown",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "400085A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "neighbourhood",
-      "suburb",
-      "city",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 3,
+    "nearby_landuse": "unknown",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "150002A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "city_district",
-      "city",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "unknown",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "200021D",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "town",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "unknown",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "660058A",
-    "land_use": "rural",
-    "is_non_urban": true,
-    "address_keys": [
-      "road",
-      "village",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "unknown",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "840323A",
-    "land_use": "rural",
-    "is_non_urban": true,
-    "address_keys": [
-      "hamlet",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "unknown",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "540305A",
-    "land_use": "rural",
-    "is_non_urban": true,
-    "address_keys": [
-      "road",
-      "hamlet",
-      "village",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "unknown",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "840140A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "hamlet",
-      "village",
-      "city",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 1,
+    "nearby_landuse": "unknown",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "740053A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "suburb",
-      "city",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 1,
+    "nearby_landuse": "unknown",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "200036C",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "village",
-      "town",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "industrial",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "900011C",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "town",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 1,
+    "nearby_landuse": "unknown",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "240292A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "village",
-      "city",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "unknown",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "840403A",
-    "land_use": "rural",
-    "is_non_urban": true,
-    "address_keys": [
-      "road",
-      "hamlet",
-      "village",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 2,
+    "nearby_landuse": "unknown",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "200003B",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "town",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 1,
+    "nearby_landuse": "unknown",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "740061A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "city",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 2,
+    "nearby_landuse": "unknown",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "700027A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "hamlet",
-      "suburb",
-      "city",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "grass",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "260120A",
-    "land_use": "rural",
-    "is_non_urban": true,
-    "address_keys": [
-      "road",
-      "village",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "unknown",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "260022A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "village",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "unknown",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "700047A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "city",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "plant_nursery",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "360103A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "neighbourhood",
-      "suburb",
-      "city",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 1,
+    "nearby_landuse": "unknown",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "840417A",
-    "land_use": "rural",
-    "is_non_urban": true,
-    "address_keys": [
-      "road",
-      "village",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 1,
+    "nearby_landuse": "meadow",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "640129A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "neighbourhood",
-      "suburb",
-      "town",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 2,
+    "nearby_landuse": "unknown",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "400143C",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "neighbourhood",
-      "suburb",
-      "city",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 5,
+    "nearby_landuse": "unknown",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "440229A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "neighbourhood",
-      "suburb",
-      "city",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 4,
+    "nearby_landuse": "unknown",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "740012A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "city",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "unknown",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "240001A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "town",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "farmland",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "960091A",
-    "land_use": "rural",
-    "is_non_urban": true,
-    "address_keys": [
-      "road",
-      "hamlet",
-      "village",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 1,
+    "nearby_landuse": "industrial",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "240571A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "hamlet",
-      "suburb",
-      "town",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "unknown",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "840263A",
-    "land_use": "rural",
-    "is_non_urban": true,
-    "address_keys": [
-      "road",
-      "hamlet",
-      "village",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "meadow",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "150099A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "city_district",
-      "city",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "railway",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "380008A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "village",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "unknown",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "220039B",
-    "land_use": "rural",
-    "is_non_urban": true,
-    "address_keys": [
-      "road",
-      "village",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "unknown",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "380085A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "village",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "unknown",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "700034A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "suburb",
-      "city",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 3,
+    "nearby_landuse": "grass",
+    "land_use": "residential_nearby"
   },
   {
     "site_id": "800163A",
-    "land_use": "urban",
-    "is_non_urban": false,
-    "address_keys": [
-      "road",
-      "town",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": true,
+    "residential_count": 0,
+    "nearby_landuse": "unknown",
+    "land_use": "noise_safe"
   },
   {
     "site_id": "440309A",
-    "land_use": "rural",
-    "is_non_urban": true,
-    "address_keys": [
-      "road",
-      "neighbourhood",
-      "hamlet",
-      "village",
-      "county",
-      "state",
-      "ISO3166-2-lvl4",
-      "postcode",
-      "country",
-      "country_code"
-    ]
+    "noise_safe": false,
+    "residential_count": 4,
+    "nearby_landuse": "unknown",
+    "land_use": "residential_nearby"
   }
 ]
