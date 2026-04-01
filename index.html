@@ -1582,9 +1582,7 @@
         'Power Meter':                       s.pmStatus === 'at_site' ? 'Yes' : s.pmStatus === 'not_at_site' ? 'No' : s.pmStatus === 'needs_check' ? 'Needs check' : '',
         'PM Distance (m)':                   s.pmDist != null ? s.pmDist : '',
         'Tenants':                           s.tenants != null ? s.tenants : '',
-        'Land Use':                          s.landUse || '',
-        'Noise-safe':                        s.noiseSafe === true ? 'Yes' : s.noiseSafe === false ? 'No' : '',
-        'Nearby Landuse Zone':               s.nearbyLanduse && s.nearbyLanduse !== 'unknown' ? s.nearbyLanduse : '',
+        'Industrial / Rural':                s.noiseSafe === true ? 'Yes' : s.noiseSafe === false ? 'No' : '',
       };
     });
 
@@ -1611,9 +1609,7 @@
       { wch: 14 }, // Power Meter
       { wch: 16 }, // PM Distance
       { wch: 10 }, // Tenants
-      { wch: 16 }, // Land Use
-      { wch: 12 }, // Noise-safe
-      { wch: 22 }, // Nearby Landuse Zone
+      { wch: 18 }, // Industrial / Rural
     ];
 
     const wb = XLSX.utils.book_new();
