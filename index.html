@@ -558,14 +558,8 @@
     </div>
     <div id="top-panel-body">
       <div class="top-filter-row">
-        <label class="layer-row" style="padding:2px 0;gap:6px;margin-bottom:2px">
-          <input type="checkbox" id="cb-ota-sites" checked>
-          <span class="label" style="font-size:11px">Show all sites</span>
-          <span class="count" id="ota-count"></span>
-        </label>
-      </div>
-      <div class="top-filter-row">
-        <button class="top-filter-btn active" data-n="100">Top 100</button>
+        <span class="count" id="ota-count" style="font-size:11px;color:#94a3b8;margin-right:auto"></span>
+        <button class="top-filter-btn" data-n="100" id="btn-top100">Top 100</button>
         <button class="top-filter-btn pm-btn" data-n="pmAll" id="btn-pm-all">&#x26A1; Has PM</button>
         <button class="top-filter-btn non-urban-btn" id="btn-non-urban">&#x1F333; Industrial / Rural</button>
         <button class="top-filter-btn dso-btn" id="btn-dso-mode">&#x1F3E2; DSO</button>
@@ -1154,7 +1148,6 @@
   let showSubs = true;
   let showEbSubs = true;
   let showTransformers = false;
-  let showOtaSites = true;
   let topFilter = 0;
   let nonUrbanFilter = false;
   const topSiteIdSets = {
@@ -1201,7 +1194,7 @@
       const nonUrbanTopOk = !nonUrbanFilter || topSiteIdSets[100].has(m._id);
       const noiseOk = !nonUrbanFilter || m._noiseSafe === true;
       const dsoOk = !dsoMode || topSiteIdSets[100].has(m._id);
-      m._visible = showOtaSites && searchOk && distOk && topOk && nonUrbanTopOk && noiseOk && dsoOk;
+      m._visible = searchOk && distOk && topOk && nonUrbanTopOk && noiseOk && dsoOk;
 
       const color = proxMode ? distColor(m._dist) : dsoMode ? m._dsoColor : m._regionColor;
       m.setIcon(makeStationIcon(color));
@@ -1374,29 +1367,52 @@
 
   // Top-N filter buttons — click active button again to deactivate
   const toggleBtnIds = new Set(['btn-non-urban', 'btn-dso-mode']);
-  document.querySelectorAll('.top-filter-btn:not(#btn-non-urban):not(#btn-dso-mode)').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const wasActive = btn.classList.contains('active');
-      document.querySelectorAll('.top-filter-btn:not(#btn-non-urban):not(#btn-dso-mode)').forEach(b => b.classList.remove('active'));
-      if (wasActive) {
-        topFilter = 0;
-      } else {
-        btn.classList.add('active');
-        const rawN = btn.dataset.n;
-        topFilter = rawN === 'pmAll' ? rawN : parseInt(rawN);
-      }
-      rerender();
+  // Top 100 toggle — when off, shows all sites and disables sub-filters
+  function setSubFiltersEnabled(enabled) {
+    ['btn-pm-all', 'btn-non-urban', 'btn-dso-mode'].forEach(id => {
+      const b = document.getElementById(id);
+      b.disabled = !enabled;
+      b.style.opacity = enabled ? '' : '0.4';
+      b.style.pointerEvents = enabled ? '' : 'none';
     });
+  }
+
+  document.getElementById('btn-top100').addEventListener('click', () => {
+    const wasActive = document.getElementById('btn-top100').classList.contains('active');
+    if (wasActive) {
+      // Deactivate Top 100 → show all sites, clear sub-filters
+      document.getElementById('btn-top100').classList.remove('active');
+      topFilter = 0;
+      nonUrbanFilter = false;
+      dsoMode = false;
+      document.getElementById('btn-pm-all').classList.remove('active');
+      document.getElementById('btn-non-urban').classList.remove('active');
+      document.getElementById('btn-dso-mode').classList.remove('active');
+      setSubFiltersEnabled(false);
+    } else {
+      document.getElementById('btn-top100').classList.add('active');
+      topFilter = 100;
+      setSubFiltersEnabled(true);
+    }
+    rerender();
   });
 
-  // Noise-safe toggle — combines with Top-N / Has PM
+  // Has PM toggle — only works within Top 100
+  document.getElementById('btn-pm-all').addEventListener('click', () => {
+    const wasActive = document.getElementById('btn-pm-all').classList.contains('active');
+    document.getElementById('btn-pm-all').classList.toggle('active', !wasActive);
+    topFilter = wasActive ? 100 : 'pmAll';
+    rerender();
+  });
+
+  // Industrial / Rural toggle — combines with Top 100
   document.getElementById('btn-non-urban').addEventListener('click', () => {
     nonUrbanFilter = !nonUrbanFilter;
     document.getElementById('btn-non-urban').classList.toggle('active', nonUrbanFilter);
     rerender();
   });
 
-  // DSO colour toggle — combines with other filters
+  // DSO colour toggle — combines with Top 100
   document.getElementById('btn-dso-mode').addEventListener('click', () => {
     dsoMode = !dsoMode;
     document.getElementById('btn-dso-mode').classList.toggle('active', dsoMode);
@@ -1406,6 +1422,9 @@
     }
     rerender();
   });
+
+  // Start with sub-filters disabled (Top 100 not active by default)
+  setSubFiltersEnabled(false);
 
 
   document.getElementById('ota-count').textContent = '(' + stations.length.toLocaleString() + ')';
@@ -1447,11 +1466,6 @@
     applyFilters();
   });
 
-  // OTA sites toggle
-  document.getElementById('cb-ota-sites').addEventListener('change', e => {
-    showOtaSites = e.target.checked;
-    applyFilters();
-  });
 
   // Substation type filter
   document.getElementById('cb-dist-subs').addEventListener('change', e => {
