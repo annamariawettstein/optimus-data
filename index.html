@@ -1141,7 +1141,6 @@ const AUSTRIA_STATES_GEOJSON = {"type":"FeatureCollection","name":"gadm41_AUT_1"
     let html = `<b>&#x1F504; ${s.name || tLabel}</b>`;
     html += `<hr style="margin:4px 0;border-color:#eee">`;
     html += `<b>Type:</b> <span style="color:${TRANSFORMER_COLOR};font-weight:600">${tLabel}</span><br>`;
-    html += `<small style="color:#888;font-size:11px;display:block;margin-bottom:4px">power=transformer: individual transformer device (not a substation)</small>`;
     if (s.operator) html += `<b>Operator:</b> ${s.operator}<br>`;
     if (vLabel)     html += `<b>Voltage:</b> ${vLabel}<br>`;
     if (s.rating)   html += `<b>Rating:</b> ${s.rating}<br>`;
