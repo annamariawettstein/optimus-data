@@ -1,11 +1,12 @@
 """
 inject_site_metadata.py
-Enriches the topSites JSON embedded in index.html with power-meter and
-tenant data from the TOP 100 Excel file.
+Enriches the topSites JSON embedded in index.html with power-meter,
+tenant, land-use, noise-safety, and DSO data from external data files.
 
 Run: python3 inject_site_metadata.py
 """
 
+import csv
 import json
 import re
 from pathlib import Path
@@ -14,6 +15,7 @@ import pandas as pd
 
 EXCEL_PATH     = Path("data/TOP 100 OTA Sites ARN 20260331.xlsx")
 LAND_USE_PATH  = Path("site_land_use.json")
+DSO_CSV_PATH   = Path("dso_per_site.csv")
 HTML_PATH      = Path("index.html")
 
 
@@ -62,6 +64,15 @@ def main() -> None:
     else:
         print(f"Warning: {LAND_USE_PATH} not found — landUse will default to 'unknown'")
 
+    # ── Load DSO mapping ────────────────────────────────────
+    dso_map = {}
+    if DSO_CSV_PATH.exists():
+        with open(DSO_CSV_PATH, encoding="utf-8") as f:
+            for row in csv.DictReader(f):
+                dso_map[row["site_id"]] = row.get("dso_name", "")
+    else:
+        print(f"Warning: {DSO_CSV_PATH} not found — dso will default to empty")
+
     meta = {}
     for _, row in df.iterrows():
         tenants        = None if pd.isna(row["tenants"])        else int(row["tenants"])
@@ -77,6 +88,7 @@ def main() -> None:
             "noiseSafe":        noise_safe_map.get(sid),
             "nearbyLanduse":    nearby_landuse_map.get(sid, "unknown"),
             "residentialCount": residential_count_map.get(sid),
+            "dso":              dso_map.get(sid, ""),
         }
 
     # ── Read HTML ─────────────────────────────────────────────
@@ -105,6 +117,7 @@ def main() -> None:
             s.setdefault("noiseSafe",        None)
             s.setdefault("nearbyLanduse",    "unknown")
             s.setdefault("residentialCount", None)
+            s.setdefault("dso",              "")
 
     new_json = json.dumps(sites, ensure_ascii=False, separators=(",", ":"))
     new_html = html[:m.start(2)] + new_json + html[m.end(2):]
