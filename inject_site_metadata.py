@@ -12,8 +12,9 @@ from pathlib import Path
 
 import pandas as pd
 
-EXCEL_PATH = Path("data/TOP 100 OTA Sites ARN 20260331.xlsx")
-HTML_PATH  = Path("index.html")
+EXCEL_PATH     = Path("data/TOP 100 OTA Sites ARN 20260331.xlsx")
+LAND_USE_PATH  = Path("site_land_use.json")
+HTML_PATH      = Path("index.html")
 
 
 def pm_status(note: str) -> str:
@@ -46,6 +47,14 @@ def main() -> None:
         col("consumption of the site (kw)"):   "consumption_kw",
     })
     df["site_id"] = df["site_id"].astype(str)
+    # ── Load land-use classifications ─────────────────────────
+    land_use_map = {}
+    if LAND_USE_PATH.exists():
+        for entry in json.loads(LAND_USE_PATH.read_text(encoding="utf-8")):
+            land_use_map[str(entry["site_id"])] = entry.get("land_use", "unknown")
+    else:
+        print(f"Warning: {LAND_USE_PATH} not found — landUse will default to 'unknown'")
+
     meta = {}
     for _, row in df.iterrows():
         tenants        = None if pd.isna(row["tenants"])        else int(row["tenants"])
@@ -56,6 +65,7 @@ def main() -> None:
             "pmDist":        pm_dist,
             "pmStatus":      pm_status(row["pm_note"]),
             "consumptionKw": consumption_kw,
+            "landUse":       land_use_map.get(row["site_id"], "unknown"),
         }
 
     # ── Read HTML ─────────────────────────────────────────────
@@ -80,6 +90,7 @@ def main() -> None:
             s.setdefault("pmDist",        None)
             s.setdefault("pmStatus",      "unknown")
             s.setdefault("consumptionKw", None)
+            s.setdefault("landUse",       "unknown")
 
     new_json = json.dumps(sites, ensure_ascii=False, separators=(",", ":"))
     new_html = html[:m.start(2)] + new_json + html[m.end(2):]
